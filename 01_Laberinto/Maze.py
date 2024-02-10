@@ -1,5 +1,5 @@
 class Maze:
-    def __init__(self, start=None, end=None):
+    def __init__(self, start=None):
         self.maze = [[1,1,0,0,0,0,1],
                      [1,1,0,1,1,0,1],
                      [1,'S',0,1,0,0,1],
@@ -7,10 +7,9 @@ class Maze:
                      [0,0,0,0,0,1,1],
                      ['E',1,1,1,1,1,1]]
         self.start = start
-        self.end = end
-        
+       
 
-    def getStartIndex(self):
+    def getStartPoint(self):
         for row in self.maze:
             index = self.maze.index(row)
             for item in row:
@@ -21,7 +20,7 @@ class Maze:
                 
     def solve(self):
         if self.start is None:
-            self.getStartIndex()
+            self.getStartPoint()
             
         self.searchNext(self.start[0],self.start[1])    
         
