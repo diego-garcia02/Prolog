@@ -53,5 +53,5 @@ class Stack:
         
         return self.stack
     
-stack = Stack("++++6789+*(10)3-+322")
-print(stack.evalPreorden())
+stack = Stack("67+8+9+(10)3*32+2-++")
+print(stack.evalPostorden())
