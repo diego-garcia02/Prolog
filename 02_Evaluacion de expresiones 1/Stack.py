@@ -9,7 +9,6 @@ class Stack:
         for i in self.expresion:
             if i != '*' and i != '+':
                 self.stack.append(i)
-                print(self.stack)
             else:
                 x = int(self.stack.pop())
                 y = int(self.stack.pop())
@@ -25,7 +24,6 @@ class Stack:
         for i in self.expresion:
             if i != '*' and i!='+':
                 self.stack.append(i)
-                print(self.stack)
             else:
                 x = int(self.stack.pop())
                 y = int(self.stack.pop())
@@ -39,7 +37,9 @@ class Stack:
         
         
         return self.stack
-
+  
+stack = Stack('36+6+23*+25*+')
+print(stack.evalPostorden())
         
        
 
@@ -55,15 +55,3 @@ class Stack:
 
 
    
-            
-
-    
-            
-        
-
-  
-
-        
-
-
-    
