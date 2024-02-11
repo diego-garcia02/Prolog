@@ -55,6 +55,14 @@ Esta función es la que se encarga de resolver el laberinto. Lo primero que hace
 y si es igual a cero, va y lo cambia por una x.
 Seguidamente va a mandarse a invocar a ella misma, pero en las coordenadas x e y adyacentes a la posicion original, esto hasta encontrarse con una posicion donde el valor del laberinto sea igual a S.
 
+### Funcionamiento del programa
+
+Para verificar el correcto funcionamiento de nuestro programa instanciamos un objeto de la clase maze e invocamos al metodo solve:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/01_Laberinto/programa_funcionando.png)
+
+Como se observa, el programa arroja las coordenadas correctas, y asi concluye esta tarea.
+
 ## 02_Evaluacion de expresiones 1
 
 Tenemos la siguiente expresion: 3 + 6 + 6 + 2x3 + 2x5 y queremos convertirla a preorden. Para hacer eso primero tenemos que construir el arbol binario de la expresion identificando a nuestro nodo raiz.
