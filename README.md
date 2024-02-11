@@ -55,6 +55,85 @@ Esta función es la que se encarga de resolver el laberinto. Lo primero que hace
 y si es igual a cero, va y lo cambia por una x.
 Seguidamente va a mandarse a invocar a ella misma, pero en las coordenadas x e y adyacentes a la posicion original, esto hasta encontrarse con una posicion donde el valor del laberinto sea igual a S.
 
+## 02_Evaluacion de expresiones 1
+
+Tenemos la siguiente expresion: 3 + 6 + 6 + 2x3 + 2x5 y queremos convertirla a preorden. Para hacer eso primero tenemos que construir el arbol binario de la expresion identificando a nuestro nodo raiz.
+
+El 	nodo raiz sera el de la operación que hagamos hasta el ultimo, es decir, la operacion que tiene menor jerarquia (en este caso, una suma) que este mas a la derecha.
+
+Por lo tanto, nuestra expresion quedaria de la siguiente manera:
+
+`(3+6+6+2x3)+(2*5)`
+
+El signo mas que queda aislado sera nuestro nodo raiz y las expresiones entre parentesis seran sus hijos.
+
+Puesto que del lado derecho ya no tenemos mas sumas, nos pasamos al lado izquierdo y hacemos el mismo procedimiento de identificar la suma que esta mas a la derecha.
+
+Nuestra expresión quedaria asi:
+
+`(3+6+(2*3))+(2*5)`
+
+Una vez hemos terminado de identificar nuestros nodos raices podemos construir nuestro arbol el cual quedaria de la siguiente manera.
+
+![](https://github.com/diego-garcia02/Prolog/tree/main/02_Evaluacion%20de%20expresiones%201/arbol_binario.jpg)
+
+Ahora solo queda hacer el recorrido del arbol en preorden y asi tendremos nuestra expresión, la cual quedaria de la siguiente manera:
+
+`(++++366x23x25)`
+
+La expresion en postorden quedaria de la siguiente manera:
+
+`(36+6+23*+25*+)`
+
+###Evaluación de expresiones en la pila
+
+Para verificar que nuestra expresión haya sido generada correctamente, lo que tenemos que hacer es evaluarla mediante una pila, y si al final de recorrer la expresion la pila queda solamente con un elemento numerico, significa que nuestra expresión ha sido generada correctamente.
+
+```python
+class Stack:
+    def __init__(self, expresion):
+       self.stack = []
+       self.expresion = expresion[::-1]
+```
+En la clase Stack, lo primero que hacemos es inicializar la pila, e invertir la expresión que se nos proporcione, puesto que nos sera mas facil realizar la evaluación en preorden de esa manera.
+
+```python
+def evalPreorden(self):
+        for i in self.expresion:
+            if i != '*' and i != '+':
+                self.stack.append(i)
+            else:
+                x = int(self.stack.pop())
+                y = int(self.stack.pop())
+                if i == '+':
+                    self.stack.append(x+y)
+                else:
+                    self.stack.append(x*y)     
+        
+        return self.stack
+```
+El codigo de arriba se encarga de recorrer la expresión proporcionada mediante un ciclo for y en caso de que el elemento sea de tipo numerico, lo agrega a la pila. En caso contrario, saca los ultimos dos elementos de la pila, los convierte a enteros y, dependiendo de cual sea el simbolo actual, realiza la operación correspondiente y el resultado lo agrega a la pila.
+
+```python
+def evalPostorden(self):
+        self.expresion = self.expresion[::-1]
+        for i in self.expresion:
+            if i != '*' and i!='+':
+                self.stack.append(i)
+            else:
+                x = int(self.stack.pop())
+                y = int(self.stack.pop())
+                if i == '+':
+                    self.stack.append(x+y) 
+                else: 
+                    self.stack.append(x*y) 
+	return self.stack
+```
+Para realizar la evaluacion en postorden, el codigo es el mismo que el de la evaluación en preorden solo que volvemos a invertir la expresión proporcionada.
+
+
+
+
 
 
 
