@@ -38,7 +38,7 @@ class Stack:
         
         return self.stack
   
-stack = Stack('36+6+23*+25*+')
+stack = Stack('++++6789+*(10)3')
 print(stack.evalPostorden())
         
        
