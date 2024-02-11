@@ -143,6 +143,18 @@ def evalPostorden(self):
 ```
 Para realizar la evaluacion en postorden, el codigo es el mismo que el de la evaluación en preorden solo que volvemos a invertir la expresión proporcionada.
 
+### Funcionamiento del programa
+
+Para verificar que nuestro programa funciona, instanciamos un objeto de la clase Stack y la pasamos la expresion a evaluar, luego ejecutamos el metodo evalPreorden().
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/02_Evaluacion%20de%20expresiones%201/expresion_preorden.png)
+
+Se observa que lo unico que queda en la pila es el numero 31 el cual es el resultado de evaluar la expresión.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/02_Evaluacion%20de%20expresiones%201/expresion_postorden.png)
+
+Se observa lo mismo al evaluar la expresión en postorden y con eso concluimos esta tarea.
+
 ## 03_Evaluación de expresiones 2
 
 Debemos convertir la expresión (6+7+8+9+10*3+3+2-2) y evaluarla en la pila para lo cual debemos agrupar terminos respetando la jerarquia de operaciones y crear el arbol.
@@ -225,6 +237,18 @@ Como la cadena esta invertida, si encuentra el simbolo de '(' significa que  aho
         return self.stack
 ```
 El codigo para evaluar en postorden es muy similar al anterior para evaluar en preorden, solo que aqui volvemos a invertir la cadena y en lugar de que se pare a volver a recorrer la pila para sacar y concatenar elementos cuando se encuentra con  '(', lo hace cuando se encuentra con ')', en la operación de resta en lugar de restar x-y, restamos y-x, debido a que como la cadena ya no esta invertida el sustraendo se añade despues a la pila, y a la hora sacar elementos de la pila invertimos la cadena ahora si la agregamos a la pila.
+
+### Funcionamiento del programa
+
+Para verificar que nuestro programa funciona, instanciamos un objeto de la clase Stack y la pasamos la expresion a evaluar, luego ejecutamos el metodo evalPreorden().
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/03_Evaluaci%C3%B3n%20de%20expresiones%202/evaluacion_preorden.png)
+
+Se observa que lo unico que queda en la pila es el numero 63 el cual es el resultado de efectuar la expresión.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/03_Evaluaci%C3%B3n%20de%20expresiones%202/evaluaci%C3%B3n_postorden.png)
+
+Se observa lo mismo al evaluar la expresión en postorden y con eso concluimos esta tarea.
 
 
 
