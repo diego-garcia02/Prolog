@@ -250,6 +250,45 @@ Se observa que lo unico que queda en la pila es el numero 63 el cual es el resul
 
 Se observa lo mismo al evaluar la expresión en postorden y con eso concluimos esta tarea.
 
+## Ejercicios
+
+### 1. Python
+
+```python
+def fibonacci(n): 
+    a = 1
+    b = 0
+    for i in range(n):
+        print(str(a)+",",end="")
+        a = a + b 
+        b = a - b
+
+print(fibonacci(7))
+
+def factorial(num):
+    if num == 0 or num == 1:
+        return 1
+    else:
+        return num*factorial(num-1)
+    
+print(factorial(8))
+
+def palindroma(cadena):
+    return cadena == cadena[::-1]
+```
+
+**Tipado:** Python es un lenguaje no tipado, es decir, el tipo de dato se asigna al momento de inicializar una variable sin que tenga que ser definido por el programador.
+
+Algunos tipos de datos utilizados en la elaboración de estos programas:
+- Integer o entero
+- String o cadena
+
+**Paradigma:** Multiparadigma
+
+
+
+
+
 
 
 
