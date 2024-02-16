@@ -7,18 +7,21 @@ def fibonacci(n):
         a = a + b 
         b = a - b
 
-print(fibonacci(7))
-
 def factorial(num):
     if num == 0 or num == 1:
         return 1
     else:
         return num*factorial(num-1)
-    
-print(factorial(8))
 
 def palindroma(cadena):
     return cadena == cadena[::-1]
+
+    
+print(factorial(8),'\n')
+
+print(fibonacci(5), '\n')
+
+print(palindroma("otto"), '\n')
 
 
 
