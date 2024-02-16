@@ -282,8 +282,156 @@ def palindroma(cadena):
 Algunos tipos de datos utilizados en la elaboración de estos programas:
 - Integer o entero
 - String o cadena
+- Booleanos 
 
 **Paradigma:** Multiparadigma
+
+### Funcionamiento de los programas
+
+Se observa que los programas funcionan correctamente
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/04_Ejercicios/Ejercicios%20en%20Python.png)
+
+## 2. Java 
+```java
+public class Ejercicios{
+public static void main(String[] args){
+    fibonacci(8);
+    System.out.println(factorial(5));
+    System.out.println(palindroma("anitalavalatina"));
+}
+
+public static void fibonacci(int n){
+    int a = 1;
+    int b = 0; 
+    if(n > 0){
+    for(int i=0;i<n;i++){
+        System.out.print(a+",");
+        a = a + b;
+        b = a - b;
+
+    }
+    }else{
+        System.out.println("Por favor! Introducza un entero valido");
+    }
+    System.out.println("");
+}
+
+
+public static int factorial(int n){
+    if(n == 0 || n == 1){
+        return 1;
+    }else{
+        return n*factorial(n-1);
+    }
+}
+public static boolean palindroma(String cadena){
+    char[] char_array = new char[cadena.length()];
+    int index = 0;
+    for(int i=cadena.length()-1;i>=0;i--){
+        char_array[index] = cadena.charAt(i);
+        index++;     
+
+    }
+
+    String cadena2 = String.valueOf(char_array);
+    
+    return cadena.equals(cadena2);
+    
+    
+}
+
+}
+```
+
+**Tipado:** Java es un lenguaje fuertemente tipado puesto que, nosotros como programadores debemos definir el tipo de dato al momento de declarar una variable. Java tampoco acepta incompatibilidad de tipos, por lo que no podemos meter caracteres en un arreglo de enteros, por ejemplo.
+
+Algunos tipos de datos utilizados en estos programas:
+- Enteros o Integer
+- Caracteres o chars
+- Strings o cadenas
+- Booleanos
+
+**Paradigma:** Orientado a objetos, imperativo
+
+### Funcionamiento de los programas
+
+Se observa que los programas funcionan correctamente
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/04_Ejercicios/Ejercicios%20en%20Java.png)
+
+## 3. C
+
+```c
+#include <stdio.h>
+void main(){
+    fibonacci(5);
+
+    int a = factorial(5);
+
+    printf("%d\n",a);
+
+    int c = palindroma("otto");
+    printf("%d\n", c);
+}
+
+void fibonacci(int n){
+    int a = 1;
+    int b = 0;
+    for(int i=1;i<=n;i++){
+        printf("%i , ",a);
+        a = a + b;
+        b = a - b;
+    }
+    printf("\n");
+}
+
+int factorial(int num){
+    if(num == 1 || num == 0){
+        return 1;
+    }else{
+        return num*factorial(num-1);
+    }
+}
+
+int palindroma(char* cadena){
+    int longitud =  strlen(cadena);
+    
+    char cadena2[longitud];
+    int cont = 0;
+    for(int i = longitud-1; i>=0;i--){
+        cadena2[cont] = cadena[i];
+        cont++;
+    }
+    cont = 0;
+    for(int i=0;i<longitud;i++){
+        if(cadena[i] == cadena2[i]){
+            cont++;
+        }
+    }
+
+    if(cont == longitud){
+        return 1;
+    }else{
+        return 0;
+    }
+
+
+}
+```
+**Tipado:** C es, al igual que Java, un lenguaje fuertemente tipado, solo que la diferencia es que este carece de tipos de datos considerados fundamentales a la hora de programar como serian los strings y los boolean.
+
+Algunos tipos de datos utilizados en la elaboración de estos programas:
+- Enteros o Integers
+- Caracteres o chars
+
+**Paradigma:** Imperativo, estructurado
+
+### Funcionamiento de los programas
+
+Se observa que los programas funcionan correctamente
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/04_Ejercicios/Ejercicios%20en%20C.png)
 
 
 
