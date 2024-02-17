@@ -277,7 +277,7 @@ def palindroma(cadena):
     return cadena == cadena[::-1]
 ```
 
-**Tipado:** Python es un lenguaje no tipado, es decir, el tipo de dato se asigna al momento de inicializar una variable sin que tenga que ser definido por el programador.
+**Tipado:** Python es un lenguaje no tipado, es decir, el tipo de dato se asigna al momento de inicializar una variable sin que tenga que ser definido por el programador, lo que significa que es un lenguaje dinamicamente tipado.
 
 Algunos tipos de datos utilizados en la elaboración de estos programas:
 - Integer o entero
@@ -344,7 +344,7 @@ public static boolean palindroma(String cadena){
 }
 ```
 
-**Tipado:** Java es un lenguaje fuertemente tipado puesto que, nosotros como programadores debemos definir el tipo de dato al momento de declarar una variable. Java tampoco acepta incompatibilidad de tipos, por lo que no podemos meter caracteres en un arreglo de enteros, por ejemplo.
+**Tipado:** Java es un lenguaje fuertemente y estaticamente tipado puesto que, nosotros como programadores debemos definir el tipo de dato al momento de declarar una variable. Java tampoco acepta incompatibilidad de tipos, por lo que no podemos meter caracteres en un arreglo de enteros, por ejemplo.
 
 Algunos tipos de datos utilizados en estos programas:
 - Enteros o Integer
@@ -419,7 +419,7 @@ int palindroma(char* cadena){
 
 }
 ```
-**Tipado:** C es, al igual que Java, un lenguaje fuertemente tipado, solo que la diferencia es que este carece de tipos de datos considerados fundamentales a la hora de programar como serian los strings y los boolean.
+**Tipado:** C es, al igual que Java, un lenguaje fuertemente tipado, solo que la diferencia es que este carece de tipos de datos considerados fundamentales a la hora de programar como serian los strings y los boolean. Es de tipado estatico puesto que el tipo de los datos se conoce en tiempo de compilación.
 
 Algunos tipos de datos utilizados en la elaboración de estos programas:
 - Enteros o Integers
@@ -432,6 +432,126 @@ Algunos tipos de datos utilizados en la elaboración de estos programas:
 Se observa que los programas funcionan correctamente
 
 ![] (https://github.com/diego-garcia02/Prolog/blob/main/04_Ejercicios/Ejercicios%20en%20C.png)
+
+## 4. Perl
+```perl
+sub fibonacci{
+    my $a = 1;
+    my $b = 0;
+    my $n = shift;
+
+    for(my $i = 0; $i<$n; $i++){
+        print $a;
+        print ',';
+        $a = $a + $b;
+        $b = $a - $b;
+    }
+    print "\n";
+
+}
+  
+
+sub factorial{
+    my $n = shift;
+    if($n == 0 || $n == 1){
+        return 1;
+    }else{
+        return $n*factorial($n-1);
+    }
+}
+
+sub palindroma{
+    my $string = shift;
+    my $string2 = reverse $string;
+
+    if($string eq $string2){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+fibonacci(9);
+print factorial(6)."\n";
+print palindroma("otto")."\n";
+```
+**Tipado:** Es un lenguaje debilmente tipado y de tipado dinamico puesto que no hay una distincion entre los tipos de datos que se usan en nuestro programa y no se conocen hasta que llega el tiempo de ejecución.
+
+Algunos tipos de datos utilizados en la elaboración de estos programas:
+- Integers o enteros
+- Strings o cadenas
+- Booleanos
+
+**Paradigma:** Multiparadigma
+
+Se observa que los programas funcionan correctamente
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/04_Ejercicios/Ejercicios%20en%20Perl.png)
+
+
+## 5. Go
+```go
+package main
+import ("fmt";"strings")
+
+func main(){
+	fibonacci(8);
+	fmt.Println(factorial(10));
+	fmt.Println(palindroma("ot"));
+}
+
+func fibonacci(num int){
+	a := 1;
+	b := 0;
+	for i:=0;i<num;i++ {
+		fmt.Print(a);
+		fmt.Print(",");
+		a = a + b;
+		b = a - b;
+	}
+	fmt.Println("");
+}
+
+func factorial(num int) int{
+	if num == 0 || num == 1 { 
+		return 1;
+	}else {
+		return num*factorial(num-1);
+	}
+}
+
+func palindroma(cadena string) bool{
+	str := strings.SplitAfter(cadena, "");
+	var cadena2 string;
+	for i:=len(str)-1;i>=0;i--{
+		cadena2 += str[i];
+	}
+
+	if(cadena2 == cadena){
+		return true;
+	}else{
+		return false;
+	}
+    
+	
+	
+
+}
+```
+**Tipado:** A diferencia de lenguajes como C, que los datos siempre son fuertemente tipados y lenguajes como Python, que siempre son debilmente tipados, no es el caso en Go, puesto que si tu declaras una variable tienes que especificar de que valor es, pero si tu inicializas una variable sin la palabra "var" antes y le asignas cualquier valor, Go no se complicara mucho sabiendo que tipo de dato es y simplemente se lo asignara de acuerdo a lo que haya almacenado en la variable. Sin embargo, dado que se trata de un lenguaje al que debemos compilar primero para luego ejecutarlo su tipado seria estatico.
+
+Algunos tipos de datos utilizados en estos programas:
+- Integers o enteros
+- Strings o cadenas
+- Booleanos
+
+**Paradigma:**  Imperativo, estructurado
+
+Se observa que los programas funcionan correctamente
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/04_Ejercicios/Ejercicios%20en%20Go.png)
+
+
+
 
 
 ## Funciones de Lisp 
