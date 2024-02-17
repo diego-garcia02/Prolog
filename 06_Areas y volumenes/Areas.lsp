@@ -78,18 +78,23 @@
     (setq bmayor (read))
     (print "Dame la altura del trapecio: ")
     (setq altura (read))
-    (setq resultado  / (* h (+ bmenor bmayor)) 2)
+    (setq resultado  (/ (* altura (+ bmenor bmayor)) 2))
     (write resultado)
 )
 
-(defun areaRombo()(
+(defun areaRombo()
     (print "Dame la diagonal menor del rombo: ")
     (setq dmenor (read))
     (print "Dame la diagonal mayor del rombo: ")
     (setq dmayor (read))
-    (setq resultado / (* dmenor dmayor) 2)
+    (setq resultado (/ (* dmenor dmayor) 2))
     (write resultado)
-))
+)
+
+
+(areaRombo)
+
+
 
 
 

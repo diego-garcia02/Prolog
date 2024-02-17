@@ -434,6 +434,558 @@ Se observa que los programas funcionan correctamente
 ![] (https://github.com/diego-garcia02/Prolog/blob/main/04_Ejercicios/Ejercicios%20en%20C.png)
 
 
+## Funciones de Lisp 
+
+### Función Max
+
+Devuelve el valor mas alto de un conjunto de numeros dado.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/01_Max.png)
+
+### Función Min
+
+Devuelve el valor mas equeño de un conjunto de numeros dado.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/02_Min.png)
+
+### Función Abs
+
+Devuelve el valor absoluto de cualquier numero ingresado, devuelve lo mismo si el valor ingresado es positivo.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/03_Abs.png)
+
+### Función Sqrt
+
+Devuelve la raiz cuadrada del numero ingresado.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/04_Sqrt.png)
+
+### Función Eval 
+
+Evalua la expresion dada.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/05_Eval.png)
+
+### Función Print
+
+Imprime la expresion dada.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/06_Print.png)
+
+### Función Car
+
+Retorna el primer elemento de la lista dada.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/07_Car.png)
+
+### Función Cdr
+
+Retorna la cola de la lista dada, es decir, todos los elementos de la lista a excepción de la cabeza.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/08_Cdr.png)
+
+### Función Cons
+
+Añade la primera lista a la segunda lista.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/09_Cons.png)
+
+### Función Append
+
+Une dos listas en una sola.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/10_Append.png)
+
+### Función Member
+
+Retorna una lista con los elementos que vayan despues del elemento proporcionado en el primer argumento incluyendo a ese mismo elemento.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/11_Member.png)
+
+### Función Cadr
+
+Retorna el segundo elemento de una lista.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/12_Cadr.png)
+
+### Función List
+
+Genera una lista a partir de los elementos proporcionados.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/13_List.png)
+
+### Función Caddr
+
+Retorna el tercer elemento de la lista dada.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/14_Caddr.png)
+
+### Función Reverse
+
+Genera una lista invertida de varios elementos encerrados entre parentesis.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/15_Reverse.png)
+
+### Función Listp
+
+Retorna T en caso de que el elemento proporcionado sea una lista, caso contrario, retorna NIL.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/16_Listp.png)
+
+### Función Equal
+
+Retorna T en caso de que los dos elementos proporcionados sean iguales, caso contrario, retorna NIL.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/17_Equal.png)
+
+### Función Minusp
+
+Retorna T si el elemento proporcionado es un numero negativo, caso contrario, retorna NIL.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/18_Minusp.png)
+
+### Función Plusp
+
+Retorna T si el elemento proporcionado es un numero positivo, caso contrario, retorna NIL.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/19_Plusp.png)
+
+### Función Numberp
+
+Retorna T si el elemento proporcionado es un numero, caso contrario, retorna NIL.
+
+Ejemplo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/05_Funciones%20Lisp/20_Numberp.png)
+
+## Areas y volumenes 
+
+### Area de un cuadrado
+
+```
+(defun areaCuadrado()
+    (print "Dame el lado del cuadrado: ")
+    (setq lado (read))
+    (setq resultado (* lado lado))
+    (write resultado)
+)
+```
+Saca el area de un cuadrado a partir del lado dado.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/areaCuadrado.png)
+
+### Area de un triangulo
+
+```
+(defun areaTriangulo()
+    (print "Dame la base del triangulo: ")
+    (setq base (read))
+    (print "Dame la altura del triangulo: ")
+    (setq altura (read))
+    (setq resultado ( / (* base altura) 2 ))
+    (write resultado)
+)
+```
+Saca el area de un triangulo a partir de su base y altura.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/areaTriangulo.png)
+
+### Area de un rectangulo
+
+```
+(defun areaRectangulo() 
+    (print "Dame la base del rectangulo: ")
+    (setq base (read))
+    (print "Dame la altura del rectangulo: ")
+    (setq altura (read))
+    (setq resultado (* base altura))
+    (write resultado)
+)
+
+```
+Saca el area de un rectangulo a partir de su base y altura.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/areaRectangulo.png)
+
+### Area de un pentagono
+
+```
+(defun areaPentagono()
+    (print "Dame el lado del pentagono: ")
+    (setq lado (read))
+    (setq perimetro (* 5 lado))
+    (print "Dame la apotema del pentagono: ")
+    (setq apotema (read))
+    (setq resultado (/ (* perimetro apotema) 2))
+    (write resultado)
+)
+
+```
+Saca el area de un pentagono a partir de su lado y apotema.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/areaPentagono.png)
+
+### Area de un hexagono
+
+```
+(defun areaHexagono()
+    (print "Dame el lado del hexagono: ")
+    (setq lado (read))
+    (setq perimetro (* 6 lado))
+    (print "Dame la apotema del hexagono: ")
+    (setq apotema (read))
+    (setq resultado (/ (* perimetro apotema) 2))
+    (write resultado)
+)
+
+```
+Saca el area de un hexagono a partir de su lado y apotema.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/areaHexagono.png)
+
+### Area de un heptagono
+
+```
+(defun areaHeptagono()
+    (print "Dame el lado del heptagono: ")
+    (setq lado (read))
+    (setq perimetro (* 7 lado))
+    (print "Dame la apotema del heptagono: ")
+    (setq apotema (read))
+    (setq resultado (/ (* perimetro apotema) 2))
+    (write resultado)
+)
+
+```
+Saca el area de un heptagono a partir de su lado y apotema.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/areaHeptagono.png)
+
+### Area de un Octagono
+
+```
+(defun areaOctagono()
+    (print "Dame el lado del octagono: ")
+    (setq lado (read))
+    (setq perimetro (* 8 lado))
+    (print "Dame la apotema del octagono: ")
+    (setq apotema (read))
+    (setq resultado (/ (* perimetro apotema) 2))
+    (write resultado)
+)
+
+```
+Saca el area de un octagono a partir de su lado y apotema.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/areaOctagono.png)
+
+### Area de un circulo
+
+```
+(defun areaCirculo()
+    (print "Dame el radio del circulo: ")
+    (setq radio (read))
+    (setq resultado ( * 3.1416 (* radio radio)))
+    (write resultado)
+)
+
+```
+Saca el area de un circulo a partir de su radio.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/areaCirculo.png)
+
+### Area de un trapecio
+
+```
+(defun areaTrapecio()
+    (print "Dame la base menor del trapecio: ")
+    (setq bmenor (read))
+    (print "Dame la base mayor del trapecio: ")
+    (setq bmayor (read))
+    (print "Dame la altura del trapecio: ")
+    (setq altura (read))
+    (setq resultado  (/ (* altura (+ bmenor bmayor)) 2))
+    (write resultado)
+)
+
+```
+Saca el area de un trapecio a partir de su base menor, su base mayor y su altura.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/areaTrapecio.png)
+
+### Area de un rombo
+
+```
+(defun areaRombo()
+    (print "Dame la diagonal menor del rombo: ")
+    (setq dmenor (read))
+    (print "Dame la diagonal mayor del rombo: ")
+    (setq dmayor (read))
+    (setq resultado (/ (* dmenor dmayor) 2))
+    (write resultado)
+)
+```
+Saca el area de un rombo a partir de su diagonal menor y de su diagonal mayor.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/areaRombo.png)
+
+## Volumen de una esfera
+
+```
+(defun volumenEsfera()
+    (print "Dame el radio de la esfera")
+    (setq radio (read))
+    (setq resultado (* (/ 4 3) (* 3.1416 (* radio (* radio radio)))))
+    (write resultado)
+)
+
+```
+
+Saca el volumen de una esfera a partir de su radio
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenEsfera.png)
+
+
+## Volumen de un cubo
+
+```
+(defun volumenCubo() 
+    (print "Dame el lado del cubo")
+    (setq lado (read))
+    (setq resultado (* lado (* lado lado)))    
+    (write resultado)
+)
+```
+
+Saca el volumen de un cubo a partir de su lado
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenCubo.png)
+
+## Volumen de un cono
+
+```
+(defun volumenCono()
+    (print "Dame el radio de la base del cono: ")
+    (setq radio (read))
+    (print "Dame la altura del cono: ")
+    (setq altura (read))
+    (setq resultado (/ (* 3.1416 (* altura (* radio radio))) 3))
+    (write resultado)
+)
+```
+
+Saca el volumen de un cono a partir de el radio de la base y su altura
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenCono.png)
+
+## Volumen de un piramide cuadrangular
+
+```
+(defun volumenPiramideCuadrangular()
+    (print "Dame el lado de la base de la piramide: ")
+    (setq lado (read))
+    (setq areabase (* lado lado))
+    (print "Dame la altura de la piramide: ")
+    (setq altura (read))
+    (setq resultado ( / (* areabase altura) 3))
+    (write resultado)
+)
+```
+Saca el volumen de una piramide a partir de el lado de la base y su altura 
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenPiramideCuadrangular.png)
+
+## Volumen de un cilindro
+
+```
+(defun volumenCilindro()
+    (print "Dame el radio de la base del cilindro")
+    (setq radio (read))
+    (setq areabase (* 3.1416 (* radio radio)))
+    (print "Dame la altura del cilindro")
+    (setq altura (read))
+    (setq resultado (* areabase altura))
+    (write resultado)
+)
+```
+Saca el volumen de un cilindro a partir de el radio de la base y su altura 
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenCilindro.png)
+
+
+## Volumen de un prisma rectangular
+
+```
+(defun volumenPrismaRectangular()
+    (print "Dame el largo del prisma: ")
+    (setq largo (read))
+    (print "Dame el ancho del prisma: ")
+    (setq ancho (read))
+    (print "Dame la altura del prisma: ")
+    (setq altura (read))
+    (setq resultado (* altura (* largo ancho)))
+    (write resultado)
+)
+```
+Saca el volumen de un prisma rectangular a partir de su largo, su ancho y su altura 
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenPrismaRectangular.png)
+
+
+## Volumen de un prisma triangular
+
+```
+(defun volumenPrismaTriangular()
+    (print "Dame la base del triangulo: ")
+    (setq base (read))
+    (print "Dame la altura del triangulo: ")
+    (setq alturabase (read))
+    (setq areabase (/ (* base alturabase) 2))
+    (print "Dame la altura del prisma: ")
+    (setq altura (read))
+    (setq resultado (* areabase altura))
+    (write resultado)
+)
+```
+Saca el volumen de un prisma triangular a partir de la base del triangulo, su altura y la altura del prisma.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenPrismaTriangular.png)
+
+
+## Volumen de un prisma pentagonal
+
+```
+(defun volumenPrismaTriangular()
+    (print "Dame la base del triangulo: ")
+    (setq base (read))
+    (print "Dame la altura del triangulo: ")
+    (setq alturabase (read))
+    (setq areabase (/ (* base alturabase) 2))
+    (print "Dame la altura del prisma: ")
+    (setq altura (read))
+    (setq resultado (* areabase altura))
+    (write resultado)
+)
+```
+Saca el volumen de un prisma pentagonal a partir de el lado del pentagono, su apotema y su altura.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenPrismaPentagonal.png)
+
+## Volumen de un octaedro regular
+
+```
+(defun volumenOctaedroRegular()
+    (print "Dame el lado del octaedro: ")
+    (setq lado (read))
+    (setq constante (/ (sqrt 2) 3))
+    (setq ladoalcubo (* lado (* lado lado)))
+    (setq resultado (* constante ladoalcubo))
+    (write resultado)
+)
+```
+Saca el volumen de un octaedro regular a partir de su lado.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenOctaedro.png)
+
+## Volumen de un icosaedro
+
+```
+(defun volumenIcosaedro()
+    (print "Dame el lado del icosaedro: ")
+    (setq lado (read))
+    (setq constante (* (/ 5 12) (+ 3 (sqrt 5))))
+    (setq ladoalcubo (* lado (* lado lado)))
+    (setq resultado (* constante ladoalcubo))
+    (write resultado)
+)
+```
+Saca el volumen de un icosaedro a partir de su lado.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenIcosaedro.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -18,6 +18,7 @@
     (print "Dame la altura del cono: ")
     (setq altura (read))
     (setq resultado (/ (* 3.1416 (* altura (* radio radio))) 3))
+    (write resultado)
 )
 
 (defun volumenPiramideCuadrangular()
@@ -93,4 +94,5 @@
     (write resultado)
 )
 
+(volumenPrismaRectangular)
 
