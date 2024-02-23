@@ -1,3 +1,30 @@
+(defun eligeVolumen()
+    (princ "Ingresa el numero del volumen que quieres calcular")(terpri)
+    (princ "1.Esfera") (terpri)
+    (princ "2.Cubo") (terpri)
+    (princ "3.Cono") (terpri)
+    (princ "4.Piramide Cuadrangular") (terpri)
+    (princ "5.Cilindro") (terpri)
+    (princ "6.Prisma Rectangular") (terpri)
+    (princ "7.Prisma Triangular") (terpri)
+    (princ "8.Prisma Pentagonal") (terpri)
+    (princ "9.Octaedro Regular") (terpri)
+    (princ "10.Icosaedro") (terpri)
+    (setq num (read))
+    (cond ((= num 1) (volumenEsfera))) 
+    (cond ((= num 2) (volumenCubo))) 
+    (cond ((= num 3) (volumenCono))) 
+    (cond ((= num 4) (volumenPiramideCuadrangular))) 
+    (cond ((= num 5) (volumenCilindro))) 
+    (cond ((= num 6) (volumenPrismaRectangular)))
+    (cond ((= num 7) (volumenPrismaTriangular)))  
+    (cond ((= num 8) (volumenPrismaPentagonal))) 
+    (cond ((= num 9) (volumenOctaedroRegular)))
+    (cond ((= num 10) (volumenIcosaedro)))  
+
+)
+
+
 (defun volumenEsfera()
     (print "Dame el radio de la esfera")
     (setq radio (read))
@@ -94,5 +121,4 @@
     (write resultado)
 )
 
-(volumenPrismaRectangular)
 

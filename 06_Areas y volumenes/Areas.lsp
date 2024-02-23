@@ -1,3 +1,32 @@
+(defun eligeArea()
+    (princ "Ingresa el numero del area que quieres calcular")(terpri)
+    (princ "1.Cuadrado") (terpri)
+    (princ "2.Triangulo") (terpri)
+    (princ "3.Rectangulo") (terpri)
+    (princ "4.Pentagono") (terpri)
+    (princ "5.Hexagono") (terpri)
+    (princ "6.Heptagono") (terpri)
+    (princ "7.Octagono") (terpri)
+    (princ "8.Circulo") (terpri)
+    (princ "9.Trapecio") (terpri)
+    (princ "10.Rombo") (terpri)
+    (setq num (read))
+    (case num 
+        ((1) (areaCuadrado))
+        ((2) (areaTriangulo))
+        ((3) (areaRectangulo))
+        ((4) (areaPentagono))
+        ((5) (areaHexagono))
+        ((6) (areaHeptagono))
+        ((7) (areaOctagono))
+        ((8) (areaCirculo))
+        ((9) (areaTrapecio))
+        ((10) (areaRombo))
+    )
+    
+)
+
+
 (defun areaCuadrado()
     (print "Dame el lado del cuadrado: ")
     (setq lado (read))
@@ -92,7 +121,6 @@
 )
 
 
-(areaRombo)
 
 
 
