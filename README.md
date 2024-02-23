@@ -1061,6 +1061,140 @@ Saca el volumen de un icosaedro a partir de su lado.
 
 ![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/volumenIcosaedro.png)
 
+## Operaciones con listas 
+
+### Sacar los elementos de las siguientes listas empleando las funciones car y cdr
+
+#### 1.-(a b c d f g h)
+
+**1a.-h**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20la%20H.png)
+
+**1b.-g**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20la%20G.png)
+
+**1c.-f**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20la%20F.png)
+
+**1d.-c**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20la%20F.png)
+
+#### 2.-((a) (b d) ((1 2) 3))
+
+**2a.-d**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20la%20D.png)
+
+
+**2b.-2**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20el%202.png)
+
+
+**2c.-(1 2)**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20el%20(1 2).png)
+
+
+**2d.-(3)**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20el%20(3).png)
+
+#### 3.-((1 2 3) (4 5 6) ((((7 8 9 10)))))
+
+**3a.-4**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20el%204.png)
+
+
+**3b.-7**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20el%207.png)
+
+
+**3c.-3**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20el%203.png)
+
+
+**2d.-10**  
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/07_Operaciones%20con%20listas/Solo%20el%2010.png)
+
+## Funciones Cond y Case
+
+Se utilizaran las funciones cond y case para elegir las areas y volumenes del ejercicio pasado
+
+### Función Case para elegir areas 
+```
+(defun eligeArea()
+    (princ "Ingresa el numero del area que quieres calcular")(terpri)
+    (princ "1.Cuadrado") (terpri)
+    (princ "2.Triangulo") (terpri)
+    (princ "3.Rectangulo") (terpri)
+    (princ "4.Pentagono") (terpri)
+    (princ "5.Hexagono") (terpri)
+    (princ "6.Heptagono") (terpri)
+    (princ "7.Octagono") (terpri)
+    (princ "8.Circulo") (terpri)
+    (princ "9.Trapecio") (terpri)
+    (princ "10.Rombo") (terpri)
+    (setq num (read))
+    (case num 
+        ((1) (areaCuadrado))
+        ((2) (areaTriangulo))
+        ((3) (areaRectangulo))
+        ((4) (areaPentagono))
+        ((5) (areaHexagono))
+        ((6) (areaHeptagono))
+        ((7) (areaOctagono))
+        ((8) (areaCirculo))
+        ((9) (areaTrapecio))
+        ((10) (areaRombo))
+    )
+)
+```
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/Funcion%20Case%20para%20areas)
+
+Se observa que la función se ejecuta correctamente.
+
+### Función Cond para elegir volumenes 
+
+```
+(defun eligeVolumen()
+    (princ "Ingresa el numero del volumen que quieres calcular")(terpri)
+    (princ "1.Esfera") (terpri)
+    (princ "2.Cubo") (terpri)
+    (princ "3.Cono") (terpri)
+    (princ "4.Piramide Cuadrangular") (terpri)
+    (princ "5.Cilindro") (terpri)
+    (princ "6.Prisma Rectangular") (terpri)
+    (princ "7.Prisma Triangular") (terpri)
+    (princ "8.Prisma Pentagonal") (terpri)
+    (princ "9.Octaedro Regular") (terpri)
+    (princ "10.Icosaedro") (terpri)
+    (setq num (read))
+    (cond ((= num 1) (volumenEsfera))) 
+    (cond ((= num 2) (volumenCubo))) 
+    (cond ((= num 3) (volumenCono))) 
+    (cond ((= num 4) (volumenPiramideCuadrangular))) 
+    (cond ((= num 5) (volumenCilindro))) 
+    (cond ((= num 6) (volumenPrismaRectangular)))
+    (cond ((= num 7) (volumenPrismaTriangular)))  
+    (cond ((= num 8) (volumenPrismaPentagonal))) 
+    (cond ((= num 9) (volumenOctaedroRegular)))
+    (cond ((= num 10) (volumenIcosaedro)))  
+)
+```
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/06_Areas%20y%20volumenes/Funcion%20Cond%20para%20volumenes)
+
+Se observa que la función se ejecuta correctamente.
+
 
 
 
