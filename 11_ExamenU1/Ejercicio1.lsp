@@ -1,26 +1,33 @@
 (defun sumaEnteros(numero suma)
 	(setq suma (+ suma numero))
-	(sumaEnteros (- numero 1) suma)
-	(print suma)
+	(if (= numero 1)
+		(print suma)
+		(sumaEnteros (- numero 1) suma)
+	)
 )
-
-
 
 (defun sumaPares(numero suma)
-	(if (=(/ numero 2) 0)
+	(if (= (rem numero 2) 0)
 		(setq suma (+ suma numero))
-		 
+		(print suma)
 	)
-	(print suma)
- 	(sumaPares(numero suma))
+	(if (> numero 2)
+	  (sumaPares (- numero 1) suma)
+	)	
+)
 
+(defun tercerElementoLista(lista)
+	(print (caddr lista))
+)
+
+(defun primerYUltimo(lista)
+	(setq cabeza (car lista))
+	(setq cola (car (reverse lista)))
+	(print (list cabeza cola))
+	
 )
 
 
-(defun tercerElementoLista (lista)
-	(print (cdr (lista)))
-)
 
 
-(tercerElementoLista '(1 2 3 4 5))
 
