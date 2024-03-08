@@ -1313,6 +1313,35 @@ Se observa que la función se ejecuta correctamente aplicando la condicional cor
 
 Se observa que la función se ejecuta correctamente imprimiendo la cantidad de dias que tiene cada mes.
 
+## Akinator
+
+Se trata de un programa basado en el mundialmente famoso juego en el que un genio le hara preguntas al jugador para averiguar en cual personaje esta pensando.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/10_Akinator/Nodos.png)
+
+De momento, estos son los nodos con los que cuenta nuestro programa.
+
+```
+(defun recorre(lista)
+    (setq rama (mapcar #'car lista))
+    (setq hojas (mapcar #'cdr lista))
+    (format t "¿Tu personaje es ~a"(car rama))
+    (setq respuesta (read))
+    (if (string-equal respuesta "S")
+        (recorre (car hojas))
+        (recorre (cadr hojas))
+    ) 
+)
+```
+Este es el codigo que se encarga de recorrer nuestro arbol las ramas contienen lo que se encuentra en el primer nivel de este y las hojas contienen los otros niveles que hay en ese arbol.
+
+El programa pregunta si el personaje pertenece al primer elemento del primer nivel del arbol (en este caso REAL) y en caso de ser asi recorrera todo lo que este contenido en REAL dentro del arbol, en caso de no ser asi se ira a la otra rama (la rama FICTICIO) y de ahi recorrera todo lo que se encuentre dentro de ese nivel
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/10_Akinator/recorreNodos1.png)
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/10_Akinator/recorreNodos2.png)
+
+Se observa que nuestro programa funciona bien a primera vista, pero dado a que solo tenemos dos niveles en nuestro arbol, no podemos afirmar a ciencia cierta si nuestro programa ya esta terminado o si sufrira algunas modificaciones.
 
 
 
