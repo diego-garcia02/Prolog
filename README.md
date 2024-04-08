@@ -1343,9 +1343,61 @@ El programa pregunta si el personaje pertenece al primer elemento del primer niv
 
 Se observa que nuestro programa funciona bien a primera vista, pero dado a que solo tenemos dos niveles en nuestro arbol, no podemos afirmar a ciencia cierta si nuestro programa ya esta terminado o si sufrira algunas modificaciones.
 
+## Akinator mejorado
 
+El codigo anterior del akinator no podia recorrer a partir del segundo nivel del arbol, al menos no como se tenia pensado. Sin embargo este actual codigo ya es capaz de recorrer todo los nodos que conforma nuestro arbol.
 
+```
+(defun recorre(lista)
+    (if (listp(car lista))
+     (setq rama (caar lista)) 
+     (setq rama (car lista))
+    ) 
+    
+    
+    (format t "¿Tu personaje ~a ?" rama)
+    (setq respuesta (read))    
+    (if (string-equal respuesta "S")
+        (recorre (cdar lista))
+        (recorre (cdr lista))
+    )       
+)
+```
+Primero verifica si la cabeza de la lista es en si misma una lista y en caso de que lo sea sacara la cabeza de la cabeza de la lista.
 
+Preguntamos si el personaje corresponde a lo que este en la cabeza de la lista, y en caso de que lo sea sacamos la cabeza de la lista, es decir, la rama que contiene a los personajes pertenecientes a lo que habia en la cabeza de la lista, luego hacemos un cdr para que no vuelva a incluir otra vez a la cabeza de la lista. 
+
+En caso de que el personaje, no pertenezca a determinada categoria, lo que la función hara sera un cdr que retornara todas las ramas a excepcion de la primera para poder preguntar acerca de las otras categorias y este proceso se repite recursivamente hasta que ya no queden elementos en la rama elegida.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/10_Akinator/arbolFuncionando.png)
+
+Se observa que nuestro codigo funciona correctamente al ser capaz de recorrer el arbol de acuerdo a lo que nosotros hayamos contestado.
+
+## Arbol avatar
+
+El siguiente codigo se encarga de recorrer un arbol acerca del mundo de avatar
+
+```
+(defun recorre(lista)
+     (if (listp(car lista))
+     (setq rama (caar lista)) 
+     (setq rama (car lista))
+    ) 
+    
+    
+    (format t "¿Tu personaje es ~a ?" rama)
+    (setq respuesta (read))    
+    (if (string-equal respuesta "S")
+        (recorre (cadar lista))
+        (recorre (cdr lista))
+    )     
+)
+```
+El codigo es en esencia el mismo que usamos para construir nuestro Akinator solo que ahora cuando el usuario teclee "S", el arbol tomara la cabeza de la cola de la cabeza del arbol, a diferencia del anterior donde solo tomaba la cola de la cabeza
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/10_Akinator/arbolAvatar.png)
+
+Se observa que nuestro arbol funciona como se espera 
 
 
 
