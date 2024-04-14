@@ -1399,6 +1399,63 @@ El codigo es en esencia el mismo que usamos para construir nuestro Akinator solo
 
 Se observa que nuestro arbol funciona como se espera 
 
+## Arbol genealogico usando Prolog
+
+Consiste en crear un arbol genealogico con los miembros de nuestra familia asignandoles a cada uno las propiedades que le corresponden.
+
+El arbol completo se encuentra en el siguiente link
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/12_Arbol_genealogico/familia.pl)
+
+## Creación de reglas logicas para nuestro arbol genealogico
+
+Usando prolog podemos crear reglas logicas que nos permiten generar la definición de nuevas propiedades a partir de propiedades ya existentes.
+
+Crearemos reglas para definir a los tios, hermanos, abuelos, nietos e hijos, las cuales quedan de la siguiente manera:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/12_Arbol_genealogico/Reglas_logicas.png).
+
+Se observa que la regla del abuelo funciona correctamente al pasarle como primer propiedad a josecarmen.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/12_Arbol_genealogico/Regla_abuelo.png).
+
+Se observa que la regla del hermano funciona correctamente al pasarle como primer propiedad a karen.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/12_Arbol_genealogico/Regla_hermano.png).
+
+Se observa que la regla del hijo funciona correctamente al pasarle como primer propiedad a miguel.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/12_Arbol_genealogico/Regla_hijo.png).
+
+Se observa que la regla del nieto funciona correctamente al pasarle como primer propiedad a diego.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/12_Arbol_genealogico/Regla_nieto.png).
+
+Se observa que la regla del tio funciona correctamente al pasarle como primer propiedad a marbella.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/12_Arbol_genealogico/Regla_tio.png).
+
+
+## Evaluación de sentencias logicas
+
+-La Tierra es un planeta # Constante de individuo Tierra en predicado monario.
+-La Luna no es un planeta # Constante de individuo Luna en predicado monario.
+-La Luna es un satelite  # Constante de individuo en predicado binario.
+-La Tierra gira alrededor del Sol # Constantes de individuo Tierra y Sol en predicado binario.
+-Todo planeta es un satelite # Cuantificador universal con variable de individuo planeta en predicado monario.
+-Todo planeta gira alrededor del Sol # Cuantificador universal con variable de individuo planeta y constante de individuo Sol en predicado binario.
+-Algún planeta gira alrededor de la Luna. # Cuantificador existencial con variable de individuo planeta y constante de individuo Luna en predicado binario.
+-Hay por lo menos un satelite. # Cuantificador existencial con variable de individuo satelite en predicado monario.
+-Todos los perros del vecino muerden a algún cartero # Cuantificador universal con variable de individuo perros y variable de individuo cartero en predicado binario.
+-Hay un cartero al que lo muerden todos los perros # Cuantificador existencial con variables de individuos cartero y perros en predicado binario.
+-Todos los carteros son mordidos por algún perro # Cuantificador universal con variables de individuos carteros y perros en predicado binario.
+-Hay un perro que muerde a todos los carteros # Cuantificador existencial con variables de individuos perro y carteros en predicado binario.
+-Todos los perros que asusten a algún cartero, lo muerden # Cuantificador universal con variables de individuos perros y cartero en predicado binario.
+-Hay un perro que muerde a todos los perros que muerden a algún cartero # Cuantificador existencial con variables de individuo perro, perros y cartero en predicado ternario.
+-Hay un solo perro que se muerde a si mismo # Cuantificador existencial con variables de individuo perro y si mismo en predicado binario.
+
+
+
 
 
 
