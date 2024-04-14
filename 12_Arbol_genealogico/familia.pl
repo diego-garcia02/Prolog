@@ -67,6 +67,9 @@ padrede(josecarmen, martin).
 padrede(josecarmen, martha).
 padrede(josecarmen, angelina).
 padrede(roberto,diego).
+padrede(roberto,karen).
+padrede(fideladhemir, oscar).
+padrede(fideladhemir,axel).
 madrede(hermila, marbella).
 madrede(hermila, marisol).
 madrede(hermila, fideladhemir).
@@ -97,5 +100,6 @@ hermanode(marbella, fideladhemir).
 hermanade(diego, karen).
 abuelode(X,Y):- padrede(X, Z),padrede(Z, Y); madrede(X, Z), madrede(Z,Y).
 hermanode(X,Y):- padrede(Z, X), padrede(Z, Y); madrede(W, X), madrede(W,X).
-tiode(X,Y):- hermanode(X, padrede(Z,Y)); hermanode(X, madrede(Z,Y)); hermanade(X, padrede(Z,Y)); hermanade(X, madrede(Z,Y))
+tiode(X,Y):- hermanode(X,Z),padrede(Z,Y); hermanode(X,Z),madrede(Z,Y); hermanade(X, Z),padrede(Z,Y); hermanade(X, Z), madrede(Z,Y).
 hijode(X,Y):- padrede(Y,X).
+nietode(X,Y):- padrede(Y,Z),padrede(Z,X); madrede(Y,Z),madrede(Z,X).
