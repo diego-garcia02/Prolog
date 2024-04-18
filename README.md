@@ -1454,6 +1454,28 @@ Se observa que la regla del tio funciona correctamente al pasarle como primer pr
 -Hay un perro que muerde a todos los perros que muerden a algún cartero # Cuantificador existencial con variables de individuo perro, perros y cartero en predicado ternario.
 -Hay un solo perro que se muerde a si mismo # Cuantificador existencial con variables de individuo perro y si mismo en predicado binario.
 
+## Sistema experto de evaluación medica usando Prolog
+
+Se trata de un sistema que es capaz de buscar enfermedades a partir de sus sintomas.
+
+El codigo esta en el siguiente link:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/13_Sistema_experto_medico/Sistema_medico.pl).
+
+La primera regla busca una enfermedad a partir de el sintoma proporcionado o viceversa, siempre y cuando el valor de P este colocado en 1.
+
+```
+buscar(X , E , 1) :- sintomade(X, E).
+```
+La segunda regla puede buscar las enfermedades a partir de una lista de sintomas, solo tenemos que colocar en donde va P la cantidad de sintomas dentro de la lista.
+
+Se observa que ambas reglas funcionan correctamente.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/13_Sistema_experto_medico/Primeraregla.png).
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/13_Sistema_experto_medico/Segundaregla.png).
+
+
 
 
 
