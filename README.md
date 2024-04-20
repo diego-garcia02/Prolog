@@ -1475,6 +1475,46 @@ Se observa que ambas reglas funcionan correctamente.
 
 ![] (https://github.com/diego-garcia02/Prolog/blob/main/13_Sistema_experto_medico/Segundaregla.png).
 
+## Sistema experto del sistema solar
+
+Consiste en un sistema que tiene conocimiento del sistema solar.
+
+Para ver el codigo dar clic en el siguiente enlace:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/14_Sistema_solar/Sistema_solar.pl).
+
+Se observa que si le damos una luna, nos da su respectivo planeta.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/14_Sistema_solar/Luna_con_planeta.png).
+
+También se observa que al proporcionar un planeta, nos dara sus respectivas lunas.
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/14_Sistema_solar/Planeta_con_lunas.png).
+
+## Arbol de seguimiento primer enfoque
+
+Se requiere realizar el arbol de seguimiento de la siguiente función:
+
+```
+rotar(X,X,0).
+rotar([X|Y],L,N):-N1 is N-1, append(Y,[X],Y1),rotar(Y1,L,N1).
+```
+Con el fin de saber en que momento N es igual a cero.
+
+El arbol se encuentra en el link de abajo:
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/14_Sistema_solar/Arbol_de_seguimiento_primer_enfoque.png).
+
+## Arbol de seguimiento segundo enfoque
+
+Se requiere realizar el arbol de seguimiento de la siguiente función:
+
+```
+rotar(L,R,N):-append(X,Y,L),size(X,N),append(Y,X,R).
+```
+Debido a que la función no es de caracter recursivo, no es necesario realizar el arbol de seguimiento sin embargo si podemos darnos una idea de como es su funcionamiento, pues como append nos regresa todas las particiones de una lista, usando size podemos determinar la partición que valga la cantidad de veces que querramos rotar la lista, finalmente solo le pasamos ese Y y X a la función append que nos retornara en R la lista rotada.
+
+
 
 
 
