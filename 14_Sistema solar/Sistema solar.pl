@@ -332,6 +332,14 @@ planetade(neptuno,sao).
 planetade(neptuno,laomedeia).
 planetade(neptuno,neso).
 
+size([],0).
+size([X|Y],N):-size(Y,N1),N is N1+1.
+
+/*
+rotar(X,X,0).
+rotar([X|Y],L,N):-N1 is N-1, append(Y,[X],Y1),rotar(Y1,L,N1).*/
+
+rotar(L,R,N):-append(X,Y,L),size(X,N).
 
 
 
