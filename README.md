@@ -1514,6 +1514,87 @@ rotar(L,R,N):-append(X,Y,L),size(X,N),append(Y,X,R).
 ```
 Debido a que la función no es de caracter recursivo, no es necesario realizar el arbol de seguimiento sin embargo si podemos darnos una idea de como es su funcionamiento, pues como append nos regresa todas las particiones de una lista, usando size podemos determinar la partición que valga la cantidad de veces que querramos rotar la lista, finalmente solo le pasamos ese Y y X a la función append que nos retornara en R la lista rotada.
 
+## Evaluación
+
+### Existe una persona en la Feria tal que si dicha persona paga, entonces todas las personas pagan.
+
+Cuantificador existencial: Existe una 
+Variable de individuo: Persona, personas
+Predicado binario: Existe una persona en la Feria 
+Condicional: entonces
+Cuantificador universal: todas
+
+## Socrates es un hombre. Los hombres son mortales. Luego, Socrates es mortal.
+
+Constante de individuo: Socrates
+Predicado monario: Socrates es un hombre.
+Variable de individuo: hombres
+Predicado monario: Los hombres son mortales.
+Predicado monario: Socrates es mortal.
+
+## Hay estudiantes inteligentes y hay estudiantes trabajadores. Por lo tanto hay estudiantes inteligentes y trabajadores.
+
+Variables de individuo: estudiantes intligentes, estudiantes trabajadores, estudiantes
+Conjuntor: y
+
+
+## En cierto pais oriental se ha celebrado la fase del campeonato mundial de futbol. Cierto diario deportivo ha publicado las estadisticas de tan magno acontacimiento:
+
+## A todos los porteros que no vistieron camiseta negra les marco gol algún delantero europeo.
+
+Cuantificador universal: Todos
+Variables de individuo: porteros, camiseta negra, delantero europeo
+Negador: no
+Cuantificador existencial: algún
+Predicado binario: A todos los porteros que no vistieron camiseta negra
+Predicado ternario: A todos los porteros que no vistieron camiseta negra les marco gol algún delantero europeo.
+
+## Algún portero jugo con botas blancas y solo le marcaron goles jugadores con botas blancas
+
+Cuantificador existencial: Algún
+Predicado binario: portero jugo con botas blancas
+Variables de individuo: portero, botas blancas,jugadores
+Conjuntor: y
+Predicado cuaternario: portero jugo con botas blancas y solo le marcaron goles jugadores con botas blancas
+
+## Ningún portero se marco un gol a si mismo
+
+Negador del cuantificador existencial: Ningún
+Variables de individuo: portero, a si mismo
+Predicado binario: Ningún portero se marco gol a si mismo.
+
+## Ningún jugador con botas blancas vistio camiseta negra
+
+Negador del cuantificador existencial: Ningún
+Variables de individuo: jugador, botas blancas, camiseta negra
+Predicado ternario: Ningún jugador con botas blancas vistio camiseta negra
+
+## Por tanto, algún delantero europeo jugo con botas blancas.
+
+Cuantificador existencial: algún
+Variables de individuo: delantero europeo, botas blancas
+Predicado binario: algún delantero europeo jugo con botas blancas.
+
+## Socrates era el maestro de Platón. Socrates tuvo, a lo sumo, un maestro. Aristoteles fue discipulo de alguien cuyo maestro fue Socrates. Por consiguiente, Platon fue el maestro de Arsitoteles.
+
+Constantes de indiciduo: Socrates, Platón, Aristoteles
+Predicado binario: Socrates era el maestro de Platón
+Predicado binario: Aristoteles fue discipulo de alguien cuyo maestro fue Socrates
+Predicado binario: Socrates tuvo, a lo sumo, un maestro
+Predicado binario: Platon fue el maestro de Aristoteles
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
