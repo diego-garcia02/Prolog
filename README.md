@@ -1584,10 +1584,92 @@ Predicado binario: Socrates tuvo, a lo sumo, un maestro
 Predicado binario: Platon fue el maestro de Aristoteles
 
 
+## Acertijo
 
+En una calle hay cinco casas, cada una de un color distinto. 
+En cada casa vive una persona de distinta nacionalidad.
+Cada dueño bebe un único tipo de bebida, fuma una sola marca de cigarrillos 
+y tiene una mascota diferente a sus vecinos. 
+A partir de las 15 pistas presentadas a continuación, 
+la consigna que hay que responder es: "¿Quién es el dueño del pez?".
 
+El británico vive en la casa roja.
+El sueco tiene un perro como mascota.
+El danés toma té.
+El noruego vive en la primera casa.
+El alemán fuma Prince.
+La casa verde está inmediatamente a la izquierda de la blanca.
+El dueño de la casa verde bebe café.
+El propietario que fuma Pall Mall cría pájaros.
+El dueño de la casa amarilla fuma Dunhill.
+El hombre que vive en la casa del centro bebe leche.
+El vecino que fuma Blends vive al lado del que tiene un gato.
+El hombre que tiene un caballo vive al lado del que fuma Dunhill.
+El propietario que fuma Bluemaster toma cerveza.
+El vecino que fuma Blends viveal lado del que toma agua.
+El noruego vive al lado de la casa azul.
 
+Cuantificador existencial: Hay al menos cinco casas en una calle.
+Cuantificador existencial: Hay al menos una persona viviendo en cada casa.
 
+Predicado binario: Los dueños de la casa beben un tipo bebida.
+Variables de individuo: Los dueños de la casa, tipo de bebida.
+
+Predicado binario: Cada dueño fuma una marca de cigarrillos.
+Variables de individuo: dueño, marca de cigarrillos.
+
+Predicado binario: Cada dueño tiene una mascota diferente a sus vecinos.
+Variables de individuo: dueño, mascota.
+
+Predicado binario: El britanico vive en la casa roja.
+Constantes de individuo: britanico, casa roja.
+
+Predicado binario: El sueco tiene un perro de mascota.
+Constantes de individuo: sueco, perro.
+
+Predicado binario: El danes toma te.
+Constantes de individuo: danes,te.
+
+Predicado binario: El noruego vive en la primera casa.
+Constantes de individuo: noruego, primera casa.
+
+Predicado binario: El alemán fuma Prince.
+Constantes de individuo: aleman, Prince.
+
+Predicado binario: La casa verde está inmediatamente a la izquierda de la blanca.
+Constantes de individuo: casa verde, casa blanca.
+
+Predicado binario: El dueño de la casa verde bebe café.
+Variables de individuo: dueño de la casa verde, cafe.
+
+Predicado ternario: El propietario que fuma Pall Mall cría pájaros.
+Variable de individuo: propietario, pajaros.
+Constantes de individuo: Pall Mall.
+
+Predicado binario: El dueño de la casa amarilla fuma Dunhill.
+Variable de individuo: dueño de la casa amarilla.
+Constante de individuo: Dunhill.
+
+Predicado ternario: El hombre que vive en la casa del centro bebe leche.
+Variable de individuo: hombre, casa del centro,leche.
+
+Predicado ternario: El vecino que fuma Blends vive al lado del que tiene un gato.
+Variable de individuo: vecino, gato.
+Constante de individuo: Blends.
+
+Predicado ternario: El hombre que tiene un caballo vive al lado del que fuma Dunhill.
+Variables de individuo: hombre, caballo.
+Constante de individuo: Dunhill.
+
+Predicado ternario: El propietario que fuma Bluemaster toma cerveza.
+Variables de individuo: propietario, cerveza.
+Constante de individuo: Bluemaster.
+
+Predicado ternario: El vecino que fuma Blends vive al lado del que toma agua.
+Variables de individuo: vecino,agua
+Constante de individuo: agua
+Predicado binario: El noruego vive al lado de la casa azul.
+Constantes de individuo: noruego, casa azul
 
 
 
