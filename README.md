@@ -1606,20 +1606,24 @@ El hombre que vive en la casa del centro bebe leche.
 El vecino que fuma Blends vive al lado del que tiene un gato.
 El hombre que tiene un caballo vive al lado del que fuma Dunhill.
 El propietario que fuma Bluemaster toma cerveza.
-El vecino que fuma Blends viveal lado del que toma agua.
+El vecino que fuma Blends vive al lado del que toma agua.
 El noruego vive al lado de la casa azul.
 
 Cuantificador existencial: Hay al menos cinco casas en una calle.
 Cuantificador existencial: Hay al menos una persona viviendo en cada casa.
+Predicado monario: persona vive en una casa
 
-Predicado binario: Los dueños de la casa beben un tipo bebida.
-Variables de individuo: Los dueños de la casa, tipo de bebida.
+Predicado monario: Los dueños de la casa beben un tipo de bebida.
+Variables de individuo: dueños de la casa
+Propiedad: Beber un tipo de bebida.
 
-Predicado binario: Cada dueño fuma una marca de cigarrillos.
-Variables de individuo: dueño, marca de cigarrillos.
+Predicado monario: Cada dueño fuma una marca de cigarrillos.
+Variable de individuo: dueño.
+Propiedad: Fumar una marca de cigarrillos.
 
 Predicado binario: Cada dueño tiene una mascota diferente a sus vecinos.
-Variables de individuo: dueño, mascota.
+Variable de individuo: dueño.
+Propiedad: Tener una mascota.
 
 Predicado binario: El britanico vive en la casa roja.
 Constantes de individuo: britanico, casa roja.
@@ -1630,8 +1634,9 @@ Constantes de individuo: sueco, perro.
 Predicado binario: El danes toma te.
 Constantes de individuo: danes,te.
 
-Predicado binario: El noruego vive en la primera casa.
-Constantes de individuo: noruego, primera casa.
+Predicado monario: El noruego vive en la primera casa.
+Constante de individuo: noruego.
+Propiedad: vivir en la primera casa
 
 Predicado binario: El alemán fuma Prince.
 Constantes de individuo: aleman, Prince.
@@ -1650,26 +1655,129 @@ Predicado binario: El dueño de la casa amarilla fuma Dunhill.
 Variable de individuo: dueño de la casa amarilla.
 Constante de individuo: Dunhill.
 
-Predicado ternario: El hombre que vive en la casa del centro bebe leche.
-Variable de individuo: hombre, casa del centro,leche.
+Predicado binario: El hombre que vive en la casa del centro bebe leche.
+Variable de individuo: hombre que vive en la casa del centro
+Constante de individuo: leche.
 
-Predicado ternario: El vecino que fuma Blends vive al lado del que tiene un gato.
-Variable de individuo: vecino, gato.
-Constante de individuo: Blends.
+Predicado binario: El vecino que fuma Blends vive al lado del que tiene un gato.
+Variable de individuo: vecino que fuma Blends.
+Constante de individuo: gato.
 
-Predicado ternario: El hombre que tiene un caballo vive al lado del que fuma Dunhill.
-Variables de individuo: hombre, caballo.
+Predicado binario: El hombre que tiene un caballo vive al lado del que fuma Dunhill.
+Variables de individuo: hombre que tiene un caballo .
 Constante de individuo: Dunhill.
 
-Predicado ternario: El propietario que fuma Bluemaster toma cerveza.
-Variables de individuo: propietario, cerveza.
-Constante de individuo: Bluemaster.
+Predicado binario: El propietario que fuma Bluemaster toma cerveza.
+Variables de individuo: propietario que fuma Bluemaster.
+Constante de individuo: cerveza.
 
 Predicado ternario: El vecino que fuma Blends vive al lado del que toma agua.
-Variables de individuo: vecino,agua
+Variables de individuo: vecino que fuma Blend
 Constante de individuo: agua
+
 Predicado binario: El noruego vive al lado de la casa azul.
 Constantes de individuo: noruego, casa azul
+
+## Inferencias
+
+Dado que el britanico vive en la casa roja no puede vivir en una casa de diferente color.
+Como el noruego vive en la primera casa, esta no puede ser roja dado que ahi vive el britanico.
+El sueco tiene un perro como mascota y dado que cada dueño tiene solo una mascota diferente, el no puede ser el dueño del pez.
+El dueño de la casa verde bebe cafe y la casa verde se encuentra inmediatamente a la izquierda de la blanca, lo que significa que quien bebe cafe vive a la izquierda de quien vive en la casa blanca.
+Como una casa se encuentra a la izquierda de la blanca, la casa blanca no puede ser la ultima casa.
+El propietario que fuma Pall Mall cria pajaros, por lo tanto el tampoco es dueño del pez.
+El hombre que vive en la casa del centro bebe leche, por lo tanto la casa del centro no puede ser verde pues ahi vive quien bebe cafe.
+El propietario dueño del caballo vive al lado del que fuma Dunhill, y este a su vez vive a dentro de la casa amarilla, lo que significa que quien es dueño del caballo vive ya sea a la izquierda o a la derecha de la casa amarilla.
+Como el noruego vive al lado de la casa azul y la casa del noruego es la primera casa, la casa del noruego no puede ser blanca pues la casa verde se encuentra a la izquierda de ella,la casa del noruego tampoco puede ser la azul pues cada casa debe ser de diferente color y tampoco puede ser la verde pues se encuentra a la izquierda de la casa blanca, y la casa del noruego no tiene casas a su derecha al ser la primera casa. Por lo que la casa del noruego es la amarilla.
+
+El orden de las casas podria ser de las siguientes dos formas:
+
+1.Amarilla
+2.Azul
+3.Roja
+4.Blanca
+5.Verde
+
+1.Amarilla
+2.Azul
+3.Blanca
+4.Verde
+5.Roja
+
+Sabemos que el dueño de la casa amarilla es el noruego, por lo tanto es el noruego quien fuma Dunhill
+El dueño del caballo vive al lado del que fuma Dunhill, por lo tanto es el quien vive en la casa azul.
+Sabemos que el noruego no puede criar a los pajaros ya que el fuma Dunhill.
+Similarmente el noruego tampoco puede tener perros de mascota, dado que los tiene el sueco.
+El noruego no puede tomar leche ya que esa bebida la toma el propietario de la casa del centro, no puede tomar té tampoco, no puede tomar cerveza porque el fuma Dunhill y no puede tomar cafe porque lo bebe el propietario de la casa verde, por lo tanto el noruego bebe agua.
+Quien fuma Blends vive al lado de quien toma agua por lo tanto, quien fuma Blends vive en la casa azul.
+Quien vive en la casa azul no puede ser aleman porque fuma Blends, no puede ser noruego porque vive en la casa azul, no puede ser sueco porque tiene caballos y no puede ser britanico porque vive en la casa azul, por lo tanto quien vive en la casa azul es el danes.
+Quien cria pajaros no puede ser el noruego porque fuma Dunhill, no puede ser el aleman porque fuma Prince, no puede ser el sueco porque tiene perros y no puede ser el danes porque tiene caballo, por lo tanto quien cria pajaros es el britanico.
+El noruego fuma Dunhill, el aleman Prince, el danes Blends y el britanico Pall Mall, asi que quien fuma Bluemaster y bebe cerveza es el sueco.
+El britanico fuma Pall Mall, asi que el no toma cerveza y no vive en la casa verde por lo que no toma cafe, el noruego toma agua y el danes té asi que el britanico toma leche.
+Quien toma leche esta en el centro asi que la casa roja esta en el centro, por lo que el orden de las casas es como sigue:
+
+1.-Amarilla
+2.-Azul
+3.-Roja
+4.-Blanca
+5.-Verde
+
+El vecino que fuma Blends vive al lado del que tiene un gato, como el que vive en la casa azul fuma Blends y tiene de vecinos al de la casa roja y amarilla y el britanico que vive dentro de la casa roja cria pajaros entonces el noruego tiene un gato.
+El noruego tiene un gato, el danes un caballo, el britanico pajaros y el sueco un perro por lo que quien tiene al pez es el aleman.
+
+En resumen los datos quedarian de la siguiente manera.
+
+Primera casa: amarilla
+Habitada por: noruego
+Bebe: agua
+Fuma: Dunhill
+Mascota: gato
+
+Segunda casa: azul
+Habitada por: danes
+Bebe: té
+Fuma: Blends
+Mascota: caballo
+
+Tercera casa: roja
+Habitada por: britanico
+Bebe: leche
+Fuma: Pall Mall
+Mascota: pajaros
+
+Cuarta casa: blanca
+Habitada por: sueco
+Bebe: cerveza
+Fuma: Bluemaster
+Mascota: perro
+
+Quinta casa: verde
+Habitada por: aleman
+Bebe: cafe
+Fuma: Prince
+Mascota: pez
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
