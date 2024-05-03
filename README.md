@@ -1595,10 +1595,10 @@ la consigna que hay que responder es: "¿Quién es el dueño del pez?".
 
 El británico vive en la casa roja.
 El sueco tiene un perro como mascota.
-//El danés toma te
-//El noruego vive en la primera casa.
+El danés toma te
+El noruego vive en la primera casa.
 El alemán fuma Prince.
-//La casa verde está inmediatamente a la izquierda de la blanca.
+La casa verde está inmediatamente a la izquierda de la blanca.
 El dueño de la casa verde bebe café.
 El propietario que fuma Pall Mall cría pájaros.
 El dueño de la casa amarilla fuma Dunhill.
@@ -1607,7 +1607,7 @@ El vecino que fuma Blends vive al lado del que tiene un gato.
 El hombre que tiene un caballo vive al lado del que fuma Dunhill.
 El propietario que fuma Bluemaster toma cerveza.
 El vecino que fuma Blends vive al lado del que toma agua.
-//El noruego vive al lado de la casa azul.
+El noruego vive al lado de la casa azul.
 
 Cuantificador existencial: Hay al menos cinco casas en una calle.
 Cuantificador existencial: Hay al menos una persona viviendo en cada casa.
@@ -1784,7 +1784,16 @@ El que fuma Bluemaster toma cerveza por lo tanto sabemos que no puede vivir en l
 El aleman fuma prince por lo tanto, no puede vivir en la casa blanca, ni en la amarilla, ni en la azul y sabemos que el britanico vive en la casa roja, lo que nos deja que el aleman vive en la casa verde.
 El que fuma Pall Mall cria pajaros por lo que no puede vivir en la casa amarilla, ni en la azul, ni en la blanca lo que nos deja que los pajaros estan en la casa roja, el gato en la casa amarilla, el caballo en la azul, y el sueco al no vivir en la casa verde vive en la blanca donde estan los perros, por lo que el pez vive en la casa verde
 
+## ¿A partir de conocer que dato podemos encontrar mas rapido la posición de los animales?
 
+Para encontrar el dato que al conocerlo nos dara mas información acerca de la posición de los animales debemos analizar las sentencias que tengan información sobre los mismos. Las cuales son:
+
+El sueco tiene un perro como mascota.
+El propietario que fuma Pall Mall cría pájaros.
+El vecino que fuma Blends vive al lado del que tiene un gato.
+El hombre que tiene un caballo vive al lado del que fuma Dunhill.
+
+Se observa que las tres ultimas sentencias nos relacionan de alguna forma a las mascotas con los cigarros y la primera nos relaciona a la mascota con la nacionalidad de la persona, por lo tanto podemos decir que sabiendo quien fuma que cigarro se puede obtener gran parte de la información de donde viven las mascotas.
 
 
 
