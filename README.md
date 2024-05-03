@@ -1595,10 +1595,10 @@ la consigna que hay que responder es: "¿Quién es el dueño del pez?".
 
 El británico vive en la casa roja.
 El sueco tiene un perro como mascota.
-El danés toma té.
-El noruego vive en la primera casa.
+//El danés toma te
+//El noruego vive en la primera casa.
 El alemán fuma Prince.
-La casa verde está inmediatamente a la izquierda de la blanca.
+//La casa verde está inmediatamente a la izquierda de la blanca.
 El dueño de la casa verde bebe café.
 El propietario que fuma Pall Mall cría pájaros.
 El dueño de la casa amarilla fuma Dunhill.
@@ -1607,7 +1607,7 @@ El vecino que fuma Blends vive al lado del que tiene un gato.
 El hombre que tiene un caballo vive al lado del que fuma Dunhill.
 El propietario que fuma Bluemaster toma cerveza.
 El vecino que fuma Blends vive al lado del que toma agua.
-El noruego vive al lado de la casa azul.
+//El noruego vive al lado de la casa azul.
 
 Cuantificador existencial: Hay al menos cinco casas en una calle.
 Cuantificador existencial: Hay al menos una persona viviendo en cada casa.
@@ -1680,7 +1680,6 @@ Constantes de individuo: noruego, casa azul
 
 ## Inferencias
 
-Dado que el britanico vive en la casa roja no puede vivir en una casa de diferente color.
 Como el noruego vive en la primera casa, esta no puede ser roja dado que ahi vive el britanico.
 El sueco tiene un perro como mascota y dado que cada dueño tiene solo una mascota diferente, el no puede ser el dueño del pez.
 El dueño de la casa verde bebe cafe y la casa verde se encuentra inmediatamente a la izquierda de la blanca, lo que significa que quien bebe cafe vive a la izquierda de quien vive en la casa blanca.
@@ -1695,7 +1694,7 @@ El orden de las casas podria ser de las siguientes dos formas:
 1.Amarilla
 2.Azul
 3.Roja
-4.Blanca
+E4.Blanca
 5.Verde
 
 1.Amarilla
@@ -1756,6 +1755,38 @@ Habitada por: aleman
 Bebe: cafe
 Fuma: Prince
 Mascota: pez
+
+## ¿Cuantos enunciados necesito para saber la respuesta a partir de la posicion de las casas?
+
+Se conoce la posición en las cuales estan ubicadas las casas, las cuales son las siguientes:
+
+1.-Amarillo
+2.-Azul
+3.-Roja
+4.-Verde
+5.-Blanco
+
+Y a partir de eso se desea saber cuantos enunciados requiero para saber cuál es la respuesta:
+
+Dado que ya conocemos la posición de las casas podemos eliminar cualquier enunciado que nos de un indicio acerca de la posición de las mismas, por lo cual no ocupariamos los siguientes enunciados:
+
+La casa verde está inmediatamente a la izquierda de la blanca.
+El noruego vive al lado de la casa azul.
+
+Dado que ya conocemos la posición de las casas no necesitamos saber que la casa verde esta a la izquierda de la blanca, y puesto que ya sabemos que el noruego vive en la primera casa, no necesitamos saber que el noruego vive al lado de la casa azul.
+
+## Encontrar la posición de las mascotas a traves de la posición de las casas
+
+El dueño de la casa amarilla fuma Dunhill.
+El dueño del caballo vive al lado del que fuma Dunhill por lo tanto el vive en la casa azul.
+Sabemos que la casa roja es la del centro y el que toma leche vive ahi.
+El que fuma Bluemaster toma cerveza por lo tanto sabemos que no puede vivir en la casa amarilla ni en la roja ni en la verde, asi que solo puede vivir en la blanca o en la azul, pero a su vez sabemos que el que fuma Blends vive al lado del que toma agua, asi que no puede vivir en la casa blanca por que se encontraria al lado del que bebe cafe y la casa blanca no tiene ninguna casa al otro lado por lo tanto el que fuma Blends vive en la casa azul y a su vez como vive al lado del que toma agua y el que fuma Dunhill vive en la casa amarilla, entonces ese toma agua y a su vez el que fuma Blends vive al lado del que tiene un gato por lo tanto el dueño del gato puede vivir en la casa amarilla o en la roja.
+El aleman fuma prince por lo tanto, no puede vivir en la casa blanca, ni en la amarilla, ni en la azul y sabemos que el britanico vive en la casa roja, lo que nos deja que el aleman vive en la casa verde.
+El que fuma Pall Mall cria pajaros por lo que no puede vivir en la casa amarilla, ni en la azul, ni en la blanca lo que nos deja que los pajaros estan en la casa roja, el gato en la casa amarilla, el caballo en la azul, y el sueco al no vivir en la casa verde vive en la blanca donde estan los perros, por lo que el pez vive en la casa verde
+
+
+
+
 
 
 
