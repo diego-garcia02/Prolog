@@ -1,13 +1,12 @@
-
 eliza:-	writeln('Hola , mi nombre es  Eliza tu  chatbot,
 	por favor ingresa tu consulta,
 	usar solo minúsculas sin . al final:'),
 	readln(Input),
 	eliza(Input),!.
 eliza(Input):- Input == ['Adios'],
-	writeln('Adios. espero poder verte ayudado.'), !.
+	writeln('Adios. espero poder haberte ayudado.'), !.
 eliza(Input):- Input == ['Adios', '.'],
-	writeln('Adios. espero poder verte ayudado.'), !.
+	writeln('Adios. espero poder haberte ayudado.'), !.
 eliza(Input) :-
 	template(Stim, Resp, IndStim),
 	match(Stim, Input),
@@ -19,26 +18,36 @@ eliza(Input) :-
 	eliza(Input1), !.
 
 
-template([buenas],['Buenas', '¿','en', 'que', 'te', 'puedo', 'ayudar','?'],[6]).
-template([como, estas],['Hola', 'yo', 'me' ,'encuentro', 'muy', 'bien'],[7]).
-template([que, onda],['Que', 'onda', '.' ,'Estoy','aqui','para', 'lo', 'que', 'se', 'te', 'ofrezca'],[8]).
-template([como,te,llamas],['Mi','nombre','es','Eliza','.','Mucho','gusto'],[9]).
-template([que,es,lo,que,haces],['Como','chatbot','mi','trabajo','es','responder','a','lo','que','tu','usuario','me','digas'],[10]).
-template([como,funcionas],['Mediante','una','serie','de','reglas','y','proposiciones','logicas','puedo','realizar','inferencias','acerca','de','como','estoy','programada'],[11]).
-template([que, paradigma, de, programacion,usas],['Mi','paradigma','programación','es','el','logico','el','cual','funciona','a','traves','de','reglas','y','proposciones','logicas'],[12]).
-template([que, lenguaje, de, programacion, usas],['Mi','lenguaje','de','programacion','es','Prolog'],[13]).
-template([cuenta,un,chiste],['Habia','un','pollito','que','se','llamaba','resistol','se','cayo','y','se','pego'],[14]).
-template([mi, nombre, es, s(_)],['Hola',0,'.','Un','gusto','en','conocerte'],[15]).
-template([que,es,lo,que,sabes],['Puedo','contestarte','todo','lo','que','quieras','saber','sobre','mi'],[16]).
-template([quien,te,creo],['El','maestro','Jesus','Eduardo','Alcaraz','Chavez','quien','imparte','la','materia','de','programación','logica','y','funcional','en','el','instituto','tecnológico','de','morelia'],[17]).
-template([cuenta, otro,chiste],['¿','Como','te','despides','de','tu','amigo','quimico','?','Acido','un','placer'],[18]).
-template([de,donde.vienes],['Yo','vengo','de','un','programa','escrito','en','tu','computadora'],[19]).
-template([que,clase,de, chatbot,eres],['Uno','capaz','de','responder','a','todas','tus','solicitudes'],[20]).
-template([como,te,va],['Me','va','bastante','bien','.','Gracias'],[21]).
-template([que,crees,que,pasa,cuando,morimos],['No','se','y','tampoco','me','interesa','saberlo','puesto','que','soy','un','robot'],[22]).
-template([por,que,crees,que,existimos],['Nosotros','los','robots','fuimos','creados','con','el','fin','de','ayudar','a','los','humanos','a','realizar','diversas','actividades'],[23]).
-template([por,que,crees,que,existen,los,humanos],['No','estoy','muy','segura','pero','creo','que','los','humanos','aun','tienen','mucho','que','ofrecer','en','este','mundo'],[24]).
-template([que,eres,en,realidad],['Soy','un','conjunto','de','unos','y','ceros','que','tu','computadora','puede','entender'],[25]).
+template([buenas],['Buenas', '¿','en', 'que', 'te', 'puedo', 'ayudar','?'],[]).
+template([como, estas],['Hola', 'yo', 'me' ,'encuentro', 'muy', 'bien'],[]).
+template([que, onda],['Que', 'onda', '.' ,'Estoy','aqui','para', 'lo', 'que', 'se', 'te', 'ofrezca'],[]).
+template([como,te,llamas],['Mi','nombre','es','Eliza','.','Mucho','gusto'],[]).
+template([que,es,lo,que,haces],['Como','chatbot','mi','trabajo','es','responder','a','lo','que','tu','usuario','me','digas'],[]).
+template([como,funcionas],['Mediante','una','serie','de','reglas','y','proposiciones','logicas','puedo','realizar','inferencias','acerca','de','como','estoy','programada'],[]).
+template([que, paradigma, de, programacion,usas],['Mi','paradigma','programación','es','el','logico','el','cual','funciona','a','traves','de','reglas','y','proposciones','logicas'],[]).
+template([que, lenguaje, de, programacion, usas],['Mi','lenguaje','de','programacion','es','Prolog'],[]).
+template([cuenta,un,chiste],['Habia','un','pollito','que','se','llamaba','resistol','se','cayo','y','se','pego'],[]).
+template([mi, nombre, es, s(_)],['Hola',0,'.','Un','gusto','en','conocerte'],[]).
+template([que,es,lo,que,sabes],['Puedo','contestarte','todo','lo','que','quieras','saber','sobre','mi'],[]).
+template([quien,te,creo],['El','maestro','Jesus','Eduardo','Alcaraz','Chavez','quien','imparte','la','materia','de','programación','logica','y','funcional','en','el','instituto','tecnológico','de','morelia'],[]).
+template([cuenta, otro,chiste],['¿','Como','te','despides','de','tu','amigo','quimico','?','Acido','un','placer'],[]).
+template([de,donde.vienes],['Yo','vengo','de','un','programa','escrito','en','tu','computadora'],[]).
+template([que,clase,de, chatbot,eres],['Uno','capaz','de','responder','a','todas','tus','solicitudes'],[]).
+template([como,te,va],['Me','va','bastante','bien','.','Gracias'],[]).
+template([que,crees,que,pasa,cuando,morimos],['No','se','y','tampoco','me','interesa','saberlo','puesto','que','soy','un','robot'],[]).
+template([por,que,crees,que,existimos],['Nosotros','los','robots','fuimos','creados','con','el','fin','de','ayudar','a','los','humanos','a','realizar','diversas','actividades'],[]).
+template([por,que,crees,que,existen,los,humanos],['No','estoy','muy','segura','pero','creo','que','los','humanos','aun','tienen','mucho','que','ofrecer','en','este','mundo'],[]).
+template([que,eres,en,realidad],['Soy','un','conjunto','de','unos','y','ceros','que','tu','computadora','puede','entender','y', 'que','me','forman','a','mi','como','resultado'],[]).
+
+template([yo, s(_), soy, hijo, de, s(_)],['¿','Que','significa','que','tu',0,'seas','hijo','de',1],[1,5]).
+template([yo, s(_), soy, padre, de, s(_)],['¿','Que','significa','que','tu',0,'seas','padre','de',1],[1,5]).
+template([yo, s(_), soy, hermano, de, s(_)],['¿','Que','significa','que','tu',0,'seas','hermano','de',1],[1,5]).
+template([mi, mama, se, llama, s(_),y, le,gusta,s(_)],['Es','bueno','que','a',0,'le','guste',1],[4,8]).
+template([mi, hermana, se, llama, s(_), y, odia, s(_)],['¿','Por','que',0,'odia',1],'?',[4,7]).
+template([mi, papa, se, llama, s(_), odia, s(_),pero,le,gusta,s(_)],['Me','gustaria','pasar','tiempo','con','alguién','que','odie',0,'y','que','le','guste',1],[4,10]).
+template([mi, abuelo, s(_),trabajaba de,s(_),en,una,empresa,llamada,s(_)],['El','trabajo','de',0,'como',1,'debio','ser','extremadamente','dificil','especialmente','en','la','empresa',2],[2,10]).
+template([yo,s(_),soy,estudiante,de,s(_),en s(_)],['Espero',0,'que','algun','dia','salgas','de','estudiar',1,'en','el',2,'para','que','trabajes'],[1,7]).
+template([el,maestro,s(_),imparte,la,materia,de,s(_),en,s(_)],['Escuche','que','el','maestro',s(_)])
 
 template([hola, mi, nombre, es, s(_), '.'], ['Hola', 0, 'Como', estas, tu, '?'], [4]).
 template([buendia, mi, nombre, es, s(_), '.'], ['buen dia', 'Como', estas, tu, 0, '?'], [4]).
