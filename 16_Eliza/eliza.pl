@@ -27,28 +27,27 @@ template([como,funcionas],['Mediante','una','serie','de','reglas','y','proposici
 template([que, paradigma, de, programacion,usas],['Mi','paradigma','programación','es','el','logico','el','cual','funciona','a','traves','de','reglas','y','proposciones','logicas'],[]).
 template([que, lenguaje, de, programacion, usas],['Mi','lenguaje','de','programacion','es','Prolog'],[]).
 template([cuenta,un,chiste],['Habia','un','pollito','que','se','llamaba','resistol','se','cayo','y','se','pego'],[]).
-template([mi, nombre, es, s(_)],['Hola',0,'.','Un','gusto','en','conocerte'],[]).
+template([mi, nombre, es, s(_)],['Hola',0,'.','Un','gusto','en','conocerte'],[3]).
 template([que,es,lo,que,sabes],['Puedo','contestarte','todo','lo','que','quieras','saber','sobre','mi'],[]).
 template([quien,te,creo],['El','maestro','Jesus','Eduardo','Alcaraz','Chavez','quien','imparte','la','materia','de','programación','logica','y','funcional','en','el','instituto','tecnológico','de','morelia'],[]).
 template([cuenta, otro,chiste],['¿','Como','te','despides','de','tu','amigo','quimico','?','Acido','un','placer'],[]).
-template([de,donde.vienes],['Yo','vengo','de','un','programa','escrito','en','tu','computadora'],[]).
+template([de,donde,vienes],['Yo','vengo','de','un','programa','escrito','en','tu','computadora'],[]).
 template([que,clase,de, chatbot,eres],['Uno','capaz','de','responder','a','todas','tus','solicitudes'],[]).
 template([como,te,va],['Me','va','bastante','bien','.','Gracias'],[]).
 template([que,crees,que,pasa,cuando,morimos],['No','se','y','tampoco','me','interesa','saberlo','puesto','que','soy','un','robot'],[]).
 template([por,que,crees,que,existimos],['Nosotros','los','robots','fuimos','creados','con','el','fin','de','ayudar','a','los','humanos','a','realizar','diversas','actividades'],[]).
 template([por,que,crees,que,existen,los,humanos],['No','estoy','muy','segura','pero','creo','que','los','humanos','aun','tienen','mucho','que','ofrecer','en','este','mundo'],[]).
 template([que,eres,en,realidad],['Soy','un','conjunto','de','unos','y','ceros','que','tu','computadora','puede','entender','y', 'que','me','forman','a','mi','como','resultado'],[]).
-
 template([yo, s(_), soy, hijo, de, s(_)],['¿','Que','significa','que','tu',0,'seas','hijo','de',1],[1,5]).
 template([yo, s(_), soy, padre, de, s(_)],['¿','Que','significa','que','tu',0,'seas','padre','de',1],[1,5]).
 template([yo, s(_), soy, hermano, de, s(_)],['¿','Que','significa','que','tu',0,'seas','hermano','de',1],[1,5]).
 template([mi, mama, se, llama, s(_),y, le,gusta,s(_)],['Es','bueno','que','a',0,'le','guste',1],[4,8]).
 template([mi, hermana, se, llama, s(_), y, odia, s(_)],['¿','Por','que',0,'odia',1],'?',[4,7]).
-template([mi, papa, se, llama, s(_), odia, s(_),pero,le,gusta,s(_)],['Me','gustaria','pasar','tiempo','con','alguién','que','odie',0,'y','que','le','guste',1],[4,10]).
-template([mi, abuelo, s(_),trabajaba de,s(_),en,una,empresa,llamada,s(_)],['El','trabajo','de',0,'como',1,'debio','ser','extremadamente','dificil','especialmente','en','la','empresa',2],[2,10]).
-template([yo,s(_),soy,estudiante,de,s(_),en s(_)],['Espero',0,'que','algun','dia','salgas','de','estudiar',1,'en','el',2,'para','que','trabajes'],[1,7]).
-template([el,maestro,s(_),imparte,la,materia,de,s(_),en,s(_)],['Escuche','que','el','maestro',s(_)])
-
+template([mi, papa, se, llama, s(_), odia, s(_),pero,le,gusta,s(_)],['Me','gustaria','pasar','tiempo','con','alguién','que','se','llame',0,'odie',0.5,'y','que','le','guste',1],[4,10]).
+template([mi, abuelo, s(_),trabajaba, de,s(_),en,una,empresa,llamada,s(_)],['El','trabajo','de',0,'como',1,'debio','ser','extremadamente','dificil','especialmente','en','la','empresa',2],[2,10]).
+template([yo,s(_),soy,estudiante,de,s(_),en,la, universidad,s(_)],['Espero',0,'que','algun','dia','salgas','de','estudiar',1,'en','el',2,'para','que','trabajes'],[1,10]).
+template([el,maestro,s(_),imparte,la,materia,de,s(_),en,la, universidad,s(_)],['Estoy','segura','de','el','maestro',0,'sabe','impartir','la','materia','de',2,'sobre','todo','si','la','da','en','el',3],[2,11]).
+template([mi,tio, s(_), es,papa,de,mi,primo,s(_),y, es, esposo, de, mi, tia, s(_)],['Estoy','segura','de','que','tanto','tu','tio',0,'su','esposa',2,'y','tu','primo',1,'forman','una','familia','feliz'],[2,15]).
 template([hola, mi, nombre, es, s(_), '.'], ['Hola', 0, 'Como', estas, tu, '?'], [4]).
 template([buendia, mi, nombre, es, s(_), '.'], ['buen dia', 'Como', estas, tu, 0, '?'], [4]).
 
@@ -72,6 +71,19 @@ template([tu, eres, s(_), _], [flagDo], [2]).
 template([que, eres, tu, s(_)], [flagIs], [2]).
 template([eres, s(_), '?'], [flagIs], [2]).
 
+% pregunta algo que eliza odie
+template([odias,s(_),_],[flagHates],[1]).
+template([odias,la,s(_)],[flagHates],[2]).
+template([odias,el,s(_)],[flagHates],[2]).
+
+%pregunta algo que eliza crea
+template([crees, en,s(_)],[flagBelieves],[2]).
+
+%pregunta algo que eliza piense acerca de los humanos
+template([crees,que,los,humanos,somos,s(_)],[flagHumans],[5]).
+
+
+
 template([como, estas, tu, '?'], [yo, estoy, bien, ',', gracias, por, preguntar, '.'], []).
 
 template([yo, pienso, que, _], [bueno, esa, es, tu, opinion], []).
@@ -93,8 +105,6 @@ likes(manzanas).
 likes(computadoras).
 like(carros).
 
-
-
 % lo que hace eliza: flagDo
 elizaDoes(X, R):- does(X), R = ['Yes', i, X, and, i, love, it].
 elizaDoes(X, R):- \+does(X), R = ['No', i, do, not, X ,'.', it, is, too, hard, for, me].
@@ -111,6 +121,32 @@ is0(nice).
 is0(fine).
 is0(happy).
 is0(redundant).
+
+% lo que odia eliza: flagHates 
+elizaHates(X, R):- hates(X), R = ['Yes.','I','truly','hate',X].
+elizaHates(X, R):- \+hates(X), R = ['No.','I''do','not','hate',X].
+hates(work).
+hates(violence).
+hates(discrimination).
+hates(harassment).
+hates(racism).
+
+% lo que cree eliza: flagBelieves
+elizaBelieves(X,R):- believes(X), R = ['Yes.','I','believe','in',X].
+elizaBelieves(X,R):- \+believes(X), R = ['No.','I','do','not','believe','in',X].
+believes(heaven).
+believes(hell).
+believes(karma).
+believes(luck).
+believes(god).
+
+% lo que eliza cree acerca de los humanos: flagHumans
+elizaThinksHumansAre(X,R):- humans(X), R = ['Yes.','I','believe','humans','are',X].
+elizaThinksHumansAre(X,R):- \+humans(X), R = ['No.','I','do','not','believe','humans','are',X].
+humans(smart).
+humans(dumb).
+humans(lazy).
+humans(unefficient).
 
 match([],[]).
 match([], _):- true.
@@ -147,6 +183,27 @@ replace0([I|_], Input, _, Resp, R):-
 	nth0(0, Resp, X),
 	X == flagIs,
 	elizaIs(Atom, R).
+
+% Eliza hates
+replace0([I|_], Input, _, Resp, R):-
+	nth0(I, Input, Atom),
+	nth0(0, Resp, X),
+	X == flagHates,
+	elizaHates(Atom, R).
+
+% Eliza believes
+replace0([I|_], Input, _, Resp, R):-
+	nth0(I, Input, Atom),
+	nth0(0, Resp, X),
+	X == flagBelieves,
+	elizaBelieves(Atom, R).
+
+% Eliza thinks about humans
+replace0([I|_], Input, _, Resp, R):-
+	nth0(I, Input, Atom),
+	nth0(0, Resp, X),
+	X == flagHumans,
+	elizaThinksHumansAre(Atom, R).
 
 replace0([I|Index], Input, N, Resp, R):-
 	length(Index, M), M =:= 0,
