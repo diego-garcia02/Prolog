@@ -73,7 +73,7 @@ padrede(fideladhemir,axel).
 madrede(hermila, marbella).
 madrede(hermila, marisol).
 madrede(hermila, fideladhemir).
-madrede(diego, marbella).
+madrede(marbella,diego).
 madrede(adelina, roberto).
 madrede(adelina, miguel).
 madrede(adelina, sergio).
@@ -97,8 +97,8 @@ hermanade(roberto, martha).
 hermanade(roberto, angelina).
 hermanade(marbella, marisol).
 hermanode(marbella, fideladhemir).
-hermanade(diego, karen).
-abuelode(X,Y):- padrede(X, Z),padrede(Z, Y); madrede(X, Z), madrede(Z,Y).
+
+abuelode(X,Y):- padrede(X, Z),padrede(Z, Y); padrede(X,Z),madrede(Z,Y); madrede(X, Z), madrede(Z,Y);madrede(X,Z),padrede(Z,Y).
 hermanode(X,Y):- padrede(Z, X), padrede(Z, Y); madrede(W, X), madrede(W,X).
 tiode(X,Y):- hermanode(X,Z),padrede(Z,Y); hermanode(X,Z),madrede(Z,Y); hermanade(X, Z),padrede(Z,Y); hermanade(X, Z), madrede(Z,Y).
 hijode(X,Y):- padrede(Y,X).
