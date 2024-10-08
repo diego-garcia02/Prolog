@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Get Pixel</title>
+
+<script type='text/javascript'>
+window.onload = function() {
+    var canvas = document.createElement("canvas");
+
+    var pic = new Image(); 
+    pic.src = 'light_skin.jpg'; 
+    pic.setAttribute('crossOrigin',null)
+    pic.onload = function() {
+
+        canvas.width = pic.width;
+        canvas.height = pic.height;
+        var ctx = canvas.getContext("2d");
+
+        ctx.drawImage(pic, 0, 0);
+
+        var c = canvas.getContext('2d');
+        var p = c.getImageData(20, 20, pic.width, pic.height).data;
+        var hex = "RGB = " + p[0]+", "+p[1]+", "+p[2];
+
+        document.getElementById("output").innerHTML = hex; 
+    }
+}
+</script>
+
+</head>
+<body>
+<div id="output"></div>
+</body>
+</html>
