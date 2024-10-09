@@ -42,7 +42,7 @@
                         )
 
                     )            
-                    ("britanico"
+                    ("es britanico"
                         ("escritor de Inmortal Hulk"
                             ("Al Ewing")
                         )
@@ -73,6 +73,9 @@
                                 ("fue mordido por una araña radioactiva"
                                     ("usa traje rojo y azul"
                                         ("Peter Parker")
+                                    )
+                                    ("usa traje negro"
+                                        ("Miles Morales")
                                     )
                                 )
                                 
@@ -112,9 +115,9 @@
                                     ("es el padre de Thor"
                                         ("Odin Borson")
                                     )
-                                    ("es el hermano de Thor"
-                                        ("Loki")
-                                    )
+                                   ("es rubio"
+                                        ("Thor")
+                                   )
                                 )
                                 ("perteneciente a la mitologia griega"
                                     ("controla el rayo"
@@ -142,6 +145,7 @@
                             ("ciego"
                                 ("Matthew Murdock")
                             )
+                            
                         )
                         ("cientifico"
                             ("obtiene sus poderes de la ira"
@@ -241,7 +245,7 @@
                             ("es grande"
                                 ("Onslaught")
                             )
-                            ("es Magneto")
+                            ("Magneto")
                         )       
                         ("es un dios"
                             ("Apocalipsis")
@@ -297,7 +301,7 @@
                    
                 )
                 ("es villana"
-                  
+                  ("")
                 ))
         ("entidad" 
             ("come planetas"

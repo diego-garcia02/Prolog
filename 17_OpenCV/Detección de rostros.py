@@ -7,7 +7,6 @@ cap = cv.VideoCapture(0)
 lower_skin = np.array([0, 35, 0])
 upper_skin = np.array([20, 65, 255])
 
-
 x=y=w=h= 0 
 img = 0
 count = 0
