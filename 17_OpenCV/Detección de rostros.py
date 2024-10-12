@@ -4,8 +4,10 @@ import cv2 as cv
 #rostro = cv.CascadeClassifier('./17_OpenCV/haarcascade_frontalface_alt.xml')
 cap = cv.VideoCapture(0)
 
-lower_skin = np.array([0, 35, 0])
-upper_skin = np.array([20, 65, 255])
+lower_skin = np.array([0, 200, 0])
+upper_skin = np.array([20, 255, 255])
+
+pixel_list = []
 
 x=y=w=h= 0 
 img = 0
@@ -24,7 +26,7 @@ while True:
     if contours:
         largest_contour = max(contours, key=cv.contourArea)
         
-        # Encontrar el centro del contorno usando un círculo mínimo que lo rodee
+        #Encontrar el centro del contorno usando un círculo mínimo que lo rodee
         ((x, y), radius) = cv.minEnclosingCircle(largest_contour)
         
         # Dibujar el círculo y el centro en el frame original si el radio es mayor que un umbral
@@ -48,19 +50,32 @@ while True:
             img80 = np.zeros((x80*2,y80*2),dtype='uint8')
             img100 = np.zeros((x100*2,y100*2),dtype='uint8')
 
+            #Binarizando las imagenes
             for i in range(x80):
                 for j in range(y80):
                     if(img80[i,j]>150):
-                        img80[i, j]=255
+                        img80[i,j]=255
                     else:
                         img80[i,j] = 0
         
             for i in range(x100):
                 for j in range(y100):
                     if(img100[i,j]>150):
-                        img100[i, j]=255
+                        img100[i,j]=255
                     else:
                         img100[i,j] = 0
+            
+            for i in range(x100):
+                for j in range(y100):
+                    if i<img100.shape[0] and j<img100.shape[0] and img80[i,j] == img100[i,j]:
+                        pixel_list.append(img80[i,j])
+            
+            
+
+                        
+
+                
+            
 
             cv.imshow('img80', img80)
             cv.imshow('img100', img100)
