@@ -1583,7 +1583,6 @@ Predicado binario: Aristoteles fue discipulo de alguien cuyo maestro fue Socrate
 Predicado binario: Socrates tuvo, a lo sumo, un maestro
 Predicado binario: Platon fue el maestro de Aristoteles
 
-
 ## Acertijo
 
 En una calle hay cinco casas, cada una de un color distinto. 
@@ -1694,7 +1693,7 @@ El orden de las casas podria ser de las siguientes dos formas:
 1.Amarilla
 2.Azul
 3.Roja
-E4.Blanca
+4.Blanca
 5.Verde
 
 1.Amarilla
