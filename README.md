@@ -1794,6 +1794,10 @@ El hombre que tiene un caballo vive al lado del que fuma Dunhill.
 
 Se observa que las tres ultimas sentencias nos relacionan de alguna forma a las mascotas con los cigarros y la primera nos relaciona a la mascota con la nacionalidad de la persona, por lo tanto podemos decir que sabiendo quien fuma que cigarro se puede obtener gran parte de la información de donde viven las mascotas.
 
+#Inteligencia artificial 
+
+##Analisis de datos del juego Phaser
+
 
 
 
