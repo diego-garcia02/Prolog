@@ -1,5 +1,6 @@
 import pygame
 import sys
+import time
 
 # Inicialización de Pygame
 pygame.init()
@@ -53,16 +54,18 @@ while True:
                
     if rect_inicial != None:
         pygame.draw.rect(ventana,VERDE,rect_inicial)
-        
-    #if pygame.mouse.get_pressed()[0] and rect_inicial != None:
-        #pos = pygame.mouse.get_pos()
-        #for i in range(16):
-            #for j in range(12):
-                #if pos[0] >= i*50 and pos[0] <= (i+1)*50 and pos[1] >= j*50 and pos[1] <= (j+1)*50:
-                    #rect_final = pygame.Rect(i*50,j*50,50,50)
+    
+    #time.sleep(1000)
+
+    if pygame.mouse.get_pressed()[0] and rect_inicial != None:
+        pos = pygame.mouse.get_pos()
+        for i in range(16):
+            for j in range(12):
+                if pos[0] >= i*50 and pos[0] <= (i+1)*50 and pos[1] >= j*50 and pos[1] <= (j+1)*50:
+                    rect_final = pygame.Rect(i*50,j*50,50,50)
                         
-    #if rect_final != None:
-        #pygame.draw.rect(ventana, ROJO, rect_final)
+    if rect_final != None:
+        pygame.draw.rect(ventana, ROJO, rect_final)
 
 
     # Dibujar un rectángulo
