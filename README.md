@@ -1794,18 +1794,29 @@ El hombre que tiene un caballo vive al lado del que fuma Dunhill.
 
 Se observa que las tres ultimas sentencias nos relacionan de alguna forma a las mascotas con los cigarros y la primera nos relaciona a la mascota con la nacionalidad de la persona, por lo tanto podemos decir que sabiendo quien fuma que cigarro se puede obtener gran parte de la información de donde viven las mascotas.
 
-#Inteligencia artificial 
+# Inteligencia artificial 
 
-##Analisis de datos del juego Phaser
+## Analisis de datos del juego Phaser
 
+![] (https://github.com/diego-garcia02/Prolog/blob/main/19_Graficas/Grafica1.png)
 
+Se observa que en esta grafica los datos son mutuamente excluyentes a simple vista, puesto que en las zonas donde toma el valor de cero no toma el valor de uno, algo que se podria visualizar de mejor manera si observaramos la grafica desde arriba. Si observamos con mayor detenimiento notaremos que hay tres puntos rojos localizados en el fondo de la grafica que podrian tratarse de outliers que fueron generados mientras jugabamos (saltamos cuando no debimos de hacerlo).
 
+![] (https://github.com/diego-garcia02/Prolog/blob/main/19_Graficas/Grafica2.png) 
 
+La segunda grafica posee mas o menos la misma excluyencia de datos que la primera, solo que parecen que los datos son mas dispersos cuando la realidad es que son menos que los que usamos para graficar la primera vez.
 
+![] (https://github.com/diego-garcia02/Prolog/blob/main/19_Graficas/Grafica3.png) 
 
+En esta grafica los datos aparecen más juntos quizas porque al momento de jugar fuimos realizando pequeños saltos en el tiempo en que llegaba la bala y aun aparecen pequeños outliers (en donde deberia haber un uno hay un cero).
 
+![] (https://github.com/diego-garcia02/Prolog/blob/main/19_Graficas/Grafica4.png)
 
+Para la cuarta grafica los datos aparecen más dispersos que en la tres quizas porque fuimos realizando pequeños saltos antes de que la bala nos golpeara solo que mientras más lento iba la bala más saltos realizabamos, a diferencia de la grafica tres donde tratabamos de hacer igual cantidad de saltos, no importando la velocidad de la bala.
 
+![] (https://github.com/diego-garcia02/Prolog/blob/main/19_Graficas/Grafica5.png) 
+
+Los datos de la grafica cinco parecen mas juntos lo que tiene sentido teniendo en cuenta que son más datos y que fuimos realizando mas saltos dependiendo de la velocidad de la bala.
 
 
 
