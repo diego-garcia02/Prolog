@@ -22,7 +22,6 @@ rect_inicial_coords = None
 rect_final_coords = None
 rect_inicial = None
 rect_final = None
-nodo_padre = None
 is_solving = False
 paredes = []
 paredes_coords = []
@@ -32,45 +31,32 @@ g_ant = 0
 f = {}
 la = []
 lc = []
-#values = []
 solucion = []
-#farthest_neighbor = None
 pos= 0
-   
-#def get_solution():
-     #final_node = lc.pop(-1)
-     #solucion.append(final_node)
-     #initial_node = lc.pop(0)
-     #values.append(final_node)
-     #for i in range(len(lc)-1,0,-1):
-          #for j,k in directions:
-             #if (lc[i][0] + j, lc[i][1] + k) == final_node:
-                    #final_node = lc[i]
-                    #values.append(final_node)
-                    #break
-     #values.pop(0)
-     #print(f"Values: {values}")
-     #print(f"Nodo inicial: {initial_node}")
-     #for i in range(len(values)-1,0,-1):
-           #for j,k in directions:
-               #if (values[i][0] + j, values[i][1] + k) == initial_node:
-                    #farthest_neighbor = values[i]
-                    #break
-     #print(farthest_neighbor)
-     #index = values.index(farthest_neighbor)
-     #solucion.extend(values[:index+1])
-     
-               
-    
-     
 
-     #print(f"Lista cerrada: {lc}")
-     #print(f"Solucion: {solucion} ")
-
+def get_solution(lc):
+    last_index = len(lc) - 1
+    while last_index >= 0:
+          last_node = lc.pop(-1)
+          last_index = len(lc) - 1
+          for i in range(len(lc)-1,-1,-1):
+               for j,k in directions:
+                    if (lc[i][0] + j, lc[i][1] + k) == last_node:
+                         farthest_neighbor = lc[i]
+                         break
+          if len(lc) != 0:
+            if farthest_neighbor == lc[0]:
+                solucion.insert(0,rect_final_coords)
+                print(f"Solucion: {solucion}")
+            index = lc.index(farthest_neighbor)
+            lc = lc[:index+1]
+            solucion.append(farthest_neighbor)
+      
     
    
+#Algoritmo para definir la f mas pequeña  
 def get_smallest_item(f):
-     smallest_value = 500
+     smallest_value = 1000
      returned_coord = (0,0)
      for i,j in f.items():
         if j < smallest_value:
@@ -84,8 +70,9 @@ def get_neighbors(rect_inicial_coords,paredes_coords):
         for i,j in directions:
             if rect_inicial_coords[0]+i >=0 and rect_inicial_coords[0]+i <=15 and rect_inicial_coords[1]+j >= 0 and rect_inicial_coords[1]+j <= 11 and (rect_inicial_coords[0]+i,rect_inicial_coords[1]+j) not in paredes_coords and (rect_inicial_coords[0]+i,rect_inicial_coords[1]+j) not in lc and (rect_inicial_coords[0]+i,rect_inicial_coords[1]+j) not in la:
              la.append((rect_inicial_coords[0]+i,rect_inicial_coords[1]+j))
-        #print("Lista abierta: "+str(la)) 
-#Algoritmo para definir la f mas pequeña              
+        #print("Lista abierta: "+str(la)
+
+#Calcular la F a partir de la G y la H        
 def get_smallest_f(rect_inicial_coords,rect_final_coords,g,h):
     #print(la)
     g_ant = g[rect_inicial_coords]
@@ -97,7 +84,7 @@ def get_smallest_f(rect_inicial_coords,rect_final_coords,g,h):
               g_temp = 14
         
          g[i] = g_ant + g_temp
-         h[i] = abs(rect_final_coords[0]-i[0])*10 + abs(rect_final_coords[1]-i[1])*10 
+         h[i] = (abs(rect_final_coords[0]-i[0]) + abs(rect_final_coords[1]-i[1]))*10
          f[i] = h[i] + g[i]
            
                  
@@ -109,16 +96,13 @@ def solve(rect_inicial_coords,paredes_coords,rect_final_coords,g,h):
       get_neighbors(rect_inicial_coords,paredes_coords)
       la.remove(rect_inicial_coords)
       rect_inicial_coords = get_smallest_f(rect_inicial_coords,rect_final_coords,g,h)
-      
+      print(rect_inicial_coords)
       f.pop(rect_inicial_coords)
       if rect_inicial_coords == rect_final_coords:
            lc.append(rect_final_coords)
-           print(lc)          
-                          
+           get_solution(lc)             
       else:
-           solve(rect_inicial_coords,paredes_coords,rect_final_coords,g,h)
-         
-         
+           solve(rect_inicial_coords,paredes_coords,rect_final_coords,g,h)       
 
 # Fuente de texto
 fuente = pygame.font.SysFont(None, 45)
@@ -150,7 +134,6 @@ while True:
                 if pos[0] >= i*50 and pos[0] <= (i+1)*50 and pos[1] >= j*50 and pos[1] <= (j+1)*50:
                     rect_inicial = pygame.Rect(i*50,j*50,50,50)
                     rect_inicial_coords = (i,j)
-                    nodo_padre = rect_inicial_coords
                     g[rect_inicial_coords] = 0
                     la.append(rect_inicial_coords)
                     #print(rect_inicial_coords)
@@ -193,13 +176,14 @@ while True:
     if pygame.mouse.get_pressed()[0] and pygame.mouse.get_pos()[0] >= 300 and pygame.mouse.get_pos()[0] <= 500 and pygame.mouse.get_pos()[1] >= 625 and pygame.mouse.get_pos()[1] <= 675 and len(la) == 1:
             is_solving = True
             solve(rect_inicial_coords,paredes_coords,rect_final_coords,g,h)
-            lc.pop(0)
+            solucion.pop(-1)
+            
           
             
-    for i in lc:
+    for i in solucion:
          pygame.draw.rect(ventana,NARANJA,(i[0]*50,i[1]*50,50,50))
             
-    #Calcular la F a partir de la G y la H
+    
  
 
  

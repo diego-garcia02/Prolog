@@ -1818,6 +1818,23 @@ Para la cuarta grafica los datos aparecen más dispersos que en la tres quizas p
 
 Los datos de la grafica cinco parecen mas juntos lo que tiene sentido teniendo en cuenta que son más datos y que fuimos realizando mas saltos dependiendo de la velocidad de la bala.
 
+## Analisis de datos del juego Phaser para balas que salen desde arriba y desde la diagonal
+
+Sabemos que actualmente el juego de Phaser solo maneja una bala que sale en direccion horizontal y se dirige a la posición del jugador, pero, ¿que pasaria si la bala también saliera desde arriba o desde la diagonal? ¿que datos cambiarian y que otros tendriamos que agregarle?
+
+Para responder estas preguntas debemos ponernos en el lugar de un cientifico de datos y analizar las diferentes variables que podrian repercutir de manera significativa a como resolvemos el problema, pues también nos daran indicios de que modelo seria el más adecuado de implementar de acuerdo con la situación.
+
+Tomemos por ejemplo la bala que sale desde arriba y preguntemonos ¿que datos nos proporcionarian mas información acerca de lo que debe hacer nuestra IA para realizar una accion (en este caso esquivar la bala)?
+
+Una sugerencia para esquivar la bala que sale por arriba seria tomar la posición inicial a partir de donde cae la bala (la cual en este caso es siempre constante) y usando la ecuación de caida libre podriamos calcular el tiempo que tarda en llegar a donde esta nuestro personaje para que este haga algo para impedir ser golpeado por la bala.
+
+Para esquivar la bala que sale en diagonal podriamos usar una ecuación de la recta para saber que trayectoria sigue la bala y asi comprobar si en algunos de los puntos de esa recta esta la posicion del muñeco.
+
+
+
+
+
+
 
 
 

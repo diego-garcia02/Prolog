@@ -1,5 +1,8 @@
 import pygame
 import random
+import pandas as pd
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 # Inicializar Pygame
 pygame.init()
@@ -37,16 +40,16 @@ datos_modelo = []
 
 # Cargar las imágenes
 jugador_frames = [
-    pygame.image.load('assets/sprites/mono_frame_1.png'),
-    pygame.image.load('assets/sprites/mono_frame_2.png'),
-    pygame.image.load('assets/sprites/mono_frame_3.png'),
-    pygame.image.load('assets/sprites/mono_frame_4.png')
+    pygame.image.load('./22_Phaser/pygamesc/assets/sprites/mono_frame_1.png'),
+    pygame.image.load('./22_Phaser/pygamesc/assets/sprites/mono_frame_2.png'),
+    pygame.image.load('./22_Phaser/pygamesc/assets/sprites/mono_frame_3.png'),
+    pygame.image.load('./22_Phaser/pygamesc/assets/sprites/mono_frame_4.png')
 ]
 
-bala_img = pygame.image.load('assets/sprites/purple_ball.png')
-fondo_img = pygame.image.load('assets/game/fondo2.png')
-nave_img = pygame.image.load('assets/game/ufo.png')
-menu_img = pygame.image.load('assets/game/menu.png')
+bala_img = pygame.image.load('./22_Phaser/pygamesc/assets/sprites/purple_ball.png')
+fondo_img = pygame.image.load('./22_Phaser/pygamesc/assets/game/fondo2.png')
+nave_img = pygame.image.load('./22_Phaser/pygamesc/assets/game/ufo.png')
+menu_img = pygame.image.load('./22_Phaser/pygamesc/assets/game/menu.png')
 
 # Escalar la imagen de fondo para que coincida con el tamaño de la pantalla
 fondo_img = pygame.transform.scale(fondo_img, (w, h))
@@ -63,12 +66,50 @@ frame_speed = 10  # Cuántos frames antes de cambiar a la siguiente imagen
 frame_count = 0
 
 # Variables para la bala
-velocidad_bala = -10  # Velocidad de la bala hacia la izquierda
+velocidad_bala = -10  # VGelocidad de la bala hacia la izquierda
 bala_disparada = False
 
 # Variables para el fondo en movimiento
 fondo_x1 = 0
 fondo_x2 = w
+
+def graficar_datos():
+    try:
+        f = open("./22_Phaser/pygamesc/datos.csv",'x')
+    except FileExistsError:
+        print("File already exists!")
+        
+    f = open("./22_Phaser/pygamesc/datos.csv", 'a')
+    for i in datos_modelo:
+        i = str(i)
+        i = i.removeprefix('(')
+        i = i.removesuffix(')')
+        f.write(i+"\n")
+
+    # Cargar los datos desde el CSV especificando que la primera fila es un encabezado
+    df = pd.read_csv('./22_Phaser/pygamesc/datos.csv', header=None, names=['x1', 'x2', 'target'], dtype=float)
+    # Crear la figura 3D
+    fig = plt.figure()
+    ax = fig.add_subplot(111, projection='3d')
+    # Graficar puntos con target=0
+    ax.scatter(df[df['target'] == 0]['x1'], df[df['target'] == 0]['x2'], df[df['target'] == 0]['target'], c='blue', marker='o', label='target=0')
+    # Graficar puntos con target=1
+    ax.scatter(df[df['target'] == 1]['x1'], df[df['target'] == 1]['x2'], df[df['target'] == 1]['target'],c='red', marker='x', label='target=1')
+    # Etiquetas de los ejes
+    ax.set_xlabel('x1')
+    ax.set_ylabel('x2')
+    ax.set_zlabel('Target')
+    # Mostrar leyenda
+    ax.legend()
+    # Mostrar el gráfico
+    plt.show()
+       
+
+
+    
+        
+
+       
 
 # Función para disparar la bala
 def disparar_bala():
@@ -166,8 +207,8 @@ def pausa_juego():
 def mostrar_menu():
     global menu_activo, modo_auto
     pantalla.fill(NEGRO)
-    texto = fuente.render("Presiona 'A' para Auto, 'M' para Manual, o 'Q' para Salir", True, BLANCO)
-    pantalla.blit(texto, (w // 4, h // 2))
+    texto = fuente.render("Presiona 'A' para Auto, 'M' para Manual,'Q' para Salir o G para Graficar", True, BLANCO)
+    pantalla.blit(texto, (w/8 , h/2.5))
     pygame.display.flip()
 
     while menu_activo:
@@ -186,6 +227,9 @@ def mostrar_menu():
                     print("Juego terminado. Datos recopilados:", datos_modelo)
                     pygame.quit()
                     exit()
+                elif evento.key == pygame.K_g:
+                    print("Datos graficados")
+                    graficar_datos()
 
 # Función para reiniciar el juego tras la colisión
 def reiniciar_juego():
@@ -222,6 +266,7 @@ def main():
                     print("Juego terminado. Datos recopilados:", datos_modelo)
                     pygame.quit()
                     exit()
+               
 
         if not pausa:
             # Modo manual: el jugador controla el salto
