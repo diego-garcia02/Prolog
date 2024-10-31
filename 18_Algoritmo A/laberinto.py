@@ -27,7 +27,6 @@ paredes = []
 paredes_coords = []
 h = {}
 g = {}
-g_ant = 0
 f = {}
 la = []
 lc = []
@@ -56,8 +55,8 @@ def get_solution(lc):
    
 #Algoritmo para definir la f mas pequeña  
 def get_smallest_item(f):
-     smallest_value = 1000
-     returned_coord = (0,0)
+     smallest_value = 2000
+     returned_coord = f.popitem()
      for i,j in f.items():
         if j < smallest_value:
             smallest_value = j
@@ -75,7 +74,7 @@ def get_neighbors(rect_inicial_coords,paredes_coords):
 #Calcular la F a partir de la G y la H        
 def get_smallest_f(rect_inicial_coords,rect_final_coords,g,h):
     #print(la)
-    g_ant = g[rect_inicial_coords]
+    #g_ant = g[rect_inicial_coords]
     for i in la:
          if (rect_inicial_coords[0] + 1,rect_inicial_coords[1]) == i or (rect_inicial_coords[0] - 1,rect_inicial_coords[1]) == i or (rect_inicial_coords[0],rect_inicial_coords[1]+1) == i or (rect_inicial_coords[0],rect_inicial_coords[1]-1) == i:
               g_temp = 10
@@ -83,7 +82,7 @@ def get_smallest_f(rect_inicial_coords,rect_final_coords,g,h):
          else:
               g_temp = 14
         
-         g[i] = g_ant + g_temp
+         g[i] = g[rect_inicial_coords] + g_temp
          h[i] = (abs(rect_final_coords[0]-i[0]) + abs(rect_final_coords[1]-i[1]))*10
          f[i] = h[i] + g[i]
            
@@ -96,7 +95,7 @@ def solve(rect_inicial_coords,paredes_coords,rect_final_coords,g,h):
       get_neighbors(rect_inicial_coords,paredes_coords)
       la.remove(rect_inicial_coords)
       rect_inicial_coords = get_smallest_f(rect_inicial_coords,rect_final_coords,g,h)
-      print(rect_inicial_coords)
+      #print(rect_inicial_coords)
       f.pop(rect_inicial_coords)
       if rect_inicial_coords == rect_final_coords:
            lc.append(rect_final_coords)
@@ -141,7 +140,8 @@ while True:
                     
     if rect_inicial != None:
         pygame.draw.rect(ventana,VERDE,rect_inicial)
-            
+    
+    #Dibujar cuadrado final        
     if rect_inicial != None and pygame.mouse.get_pressed()[0] and rect_final == None and pygame.mouse.get_pos() != pos:
             pos = pygame.mouse.get_pos()
             for i in range(16):
@@ -155,7 +155,7 @@ while True:
         pygame.draw.rect(ventana,ROJO,rect_final)
     
     #Dibujar las paredes
-    if pygame.mouse.get_pos() != pos and rect_final !=None and pygame.mouse.get_pressed()[0] and is_solving == False: 
+    if pygame.mouse.get_pos() != pos and rect_final !=None and pygame.mouse.get_pressed()[0] and not is_solving: 
            pos = pygame.mouse.get_pos()
            for i in range(16):
                 for j in range(12):
