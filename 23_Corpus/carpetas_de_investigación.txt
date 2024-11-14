@@ -1,0 +1,24 @@
+¿Quién arma las carpetas de investigación y a qué poder de la unión le compete dicha labor ?
+
+Carpetas de Investigación de la FGJ
+
+Esta base de datos contiene la información actualizada de las carpetas de investigación de la Fiscalía General de Justicia (FGJ) de la Ciudad de México 
+a partir de enero de 2016. Las variables que contiene esta base son Carpetas de investigación de delitos a nivel de calle de la FGJ por Fiscalía, Agencia, 
+Unidad de Investigación, fecha de apertura de la carpeta de investigación, delito, categoría de delito, calle, colonia, alcaldía, coordenadas, mes y año. 
+
+Carpeta de Investigación de la PGJ (archivo)
+
+Esta base de datos contiene las Carpetas de investigación de delitos a nivel de calle de la Procuraduría General de Justicia de la Ciudad de México desde enero de 2016 hasta junio de 2019.
+
+Esta base de datos dejó de actualizarse a partir de julio de 2019 debido a que contiene la información de carpetas de investigación de 2018 previa a la reclasificación que realizó la PGJ-CDMX
+con supervisión de la Oficina de Naciones Unidas contra la Droga y el Delito (UNDOC) y la validación del Centro Nacional de Información (CNI) del Secretariado Ejecutivo del Sistema Nacional de 
+Seguridad Pública (SESNSP).
+
+Una vez iniciada la carpeta de investigación, previa integración de la misma y con los datos de prueba suficientes según sea el caso, el Ministerio Público podrá arribar a alguna de las siguientes determinaciones: 
+a) Abstención de investigar 
+b) Archivo temporal 
+c) No ejercicio de la acción penal 
+d) Criterio de oportunidad 
+e) Ejercicio de la acción penal. (continuar con el proceso)
+
+Le compete al poder ejecutivo, en este caso al presidente
