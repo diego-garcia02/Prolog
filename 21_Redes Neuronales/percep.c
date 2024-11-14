@@ -4,9 +4,6 @@
 
 #define epoca 300000
 #define K 0.03f
-#define K1 0.03f
-#define K2 0.03f
-
 
 //0.00000
 //Funcion de Entrenamiento Perceptron
@@ -20,11 +17,11 @@ void pesos_initNt();
 
 float Pesos[6];	
 float bias=0.5f;
-float bias1 = 0.5f;
-float bias2 = 0.5f;
+//float bias1 = 0.5f;
+//float bias2 = 0.5f;
 float Error;
-float Error1;
-float Error2;
+//float Error1;
+//float Error2;
  //               1          1          1
  //                 0          1         0           
  //                 1          0         0
@@ -33,7 +30,7 @@ float EntNt( float x0, float x1, float target)
 {
   //printf("x0=%f, x1=%f, t %f \n" ,x0, x1,  target );
     
-//printf("x0=%f, x1=%f, t %f \n" ,x0, x1,  target );
+ //printf("x0=%f, x1=%f, t %f \n" ,x0, x1,  target );
   
   float net = 0;
   float out = 0;
@@ -44,6 +41,7 @@ float EntNt( float x0, float x1, float target)
   net = sigmoide( net );
    
   Error = target - net;
+
   //printf("Error funcion %f \n", Error); 
   bias -= K*Error;  //Como el bias es siempre 1, pongo que 
                     //el bias incluye ya su peso sinaptico
@@ -51,10 +49,8 @@ float EntNt( float x0, float x1, float target)
   delta[0] = K*Error * x0;  //la variacion de los pesos sinapticos corresponde 
   delta[1] = K*Error * x1;  //al error cometido, por la entrada correspondiente
     
-   
   Pesos[0] += delta[0];  //Se ajustan los nuevos valores
   Pesos[1] += delta[1];  //de los pesos sinapticos
-
 
    
   out=net;
@@ -93,7 +89,7 @@ net = 70.934807*x0 + 93.935219*x1 - 187.886169 ;
 void pesos_initNt(void)
 {
 int i;
-  for(  i = 0; i < 6; i++ )
+  for(  i = 0; i < 2; i++ )
   {
     Pesos[i] = (float)rand()/RAND_MAX;
   }
@@ -106,8 +102,6 @@ float sigmoide( float s ){
 int main(){
   int i=0;
   float apr;
-  float apr1;
-  float apr2;
   pesos_initNt();
   
  while(i<epoca){
@@ -116,9 +110,9 @@ int main(){
     printf("Salida Entrenamiento Epoco %d \n ,Perceptron 1 \n", i);
     apr=EntNt(1,1,1);
     printf("1,1=%f\n",apr);
-    apr=EntNt(1,0,1);
+    apr=EntNt(1,0,0);
     printf("1,0=%f\n",apr);
-    apr=EntNt(0,1,1);
+    apr=EntNt(0,1,0);
     printf("0,1=%f\n",apr);
     apr=EntNt(0,0,0);
     printf("0,0=%f\n",apr);
