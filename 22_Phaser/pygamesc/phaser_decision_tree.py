@@ -5,8 +5,6 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier, export_graphviz
-import graphviz
-import os
 # Inicializar Pygame
 pygame.init()
 
@@ -76,41 +74,52 @@ bala_disparada = False
 fondo_x1 = 0
 fondo_x2 = w
 
-def auto():
+
+def auto(datos_modelo):
     #os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
     #os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/dot.exe'
     # Cargar el dataset
-    file_path = './22_Phaser/pygamesc/datos.csv'
-    dataset = pd.read_csv(file_path)
-
+    file_path = "./22_Phaser/pygamesc/datos.csv"
+    
+    try:
+        f = open(file_path,'x')
+    except FileExistsError:
+        print("File already exists!")
+        
+    f = open(file_path, 'w')
+    for i in datos_modelo:
+        i = str(i)
+        i = i.removeprefix('(')
+        i = i.removesuffix(')')
+        i = i.replace(" ","")
+        f.write(i+"\n")
+    
+    f = open(file_path,'r')
+       
+    #print(file_path)
+    dataset = pd.read_csv(file_path, header=None, names=['velocidad', 'distancia', 'target'],dtype=float)
+  
     # Eliminar columnas innecesarias (como la vacía "Unnamed: 3")
     #dataset = dataset.drop(columns=['Unnamed: 3'])
 
     # Definir características (X) y etiquetas (y)
-    X = dataset.iloc[:, :2]  # Las dos primeras columnas son las características
+    X = dataset.iloc[:,:2]  # Las dos primeras columnas son las características
     y = dataset.iloc[:, 2]   # La tercera columna es la etiqueta
 
     # Dividir los datos en conjunto de entrenamiento y prueba
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     # Crear el clasificador de Árbol de Decisión
+    global clf 
     clf = DecisionTreeClassifier()
 
     # Entrenar el modelo
     clf.fit(X_train, y_train)
-
-    # Exportar el árbol de decisión en formato DOT para su visualización
-    dot_data = export_graphviz(clf, out_file=None, 
-                            feature_names=['Feature 1', 'Feature 2'],  
-                            class_names=['Clase 0', 'Clase 1'],  
-                            filled=True, rounded=True,  
-                            special_characters=True)  
-
-    # Crear el gráfico con graphviz
-    graph = graphviz.Source(dot_data)
-
-    # Mostrar el gráfico
-    graph.view()
+    #print(f'Dataset de prueba: {X_test}')
+    #print(f'Tipo de dato del dataset: {type(X_test)}')
+    
+    y_score= clf.score(X_test,y_test)
+    print(y_score)
 
 
 
@@ -145,12 +154,27 @@ def graficar_datos():
     # Mostrar el gráfico
     plt.show()
 
+def velocidadbala(min,max):
+    return random.randint(min,max)
+
 # Función para disparar la bala
 def disparar_bala():
     global bala_disparada, velocidad_bala
     if not bala_disparada:
-        velocidad_bala = random.randint(-8, -3)  # Velocidad aleatoria negativa para la bala
+        velocidad_bala = -1*velocidadbala(5,20)  # Velocidad aleatoria negativa para la bala
         bala_disparada = True
+
+def datos_entrenamiento():
+    global jugador, bala, velocidad_bala, salto
+    distancia = abs(jugador.x - bala.x)
+    data_frame = pd.DataFrame([[velocidad_bala, distancia]],columns=['velocidad','distancia'])
+    #print(data_frame)
+    data = clf.predict(data_frame)
+    #print(data[0])
+    #aire = round(data[0]*100)
+    #piso = round(data[1]*100)
+    return int(data[0])
+  
 
 # Función para reiniciar la posición de la bala
 def reset_bala():
@@ -201,9 +225,14 @@ def update():
 
     # Dibujar el jugador con la animación
     pantalla.blit(jugador_frames[current_frame], (jugador.x, jugador.y))
+    print("Altura del jugador: "+str(jugador.y))
 
     # Dibujar la nave
     pantalla.blit(nave_img, (nave.x, nave.y))
+
+
+
+
 
     # Mover y dibujar la bala
     if bala_disparada:
@@ -218,6 +247,7 @@ def update():
     # Colisión entre la bala y el jugador
     if jugador.colliderect(bala):
         print("Colisión detectada!")
+
         reiniciar_juego()  # Terminar el juego y mostrar el menú
 
 # Función para guardar datos del modelo en modo manual
@@ -226,7 +256,7 @@ def guardar_datos():
     distancia = abs(jugador.x - bala.x)
     salto_hecho = 1 if salto else 0  # 1 si saltó, 0 si no saltó
     # Guardar velocidad de la bala, distancia al jugador y si saltó o no
-    datos_modelo.append((velocidad_bala, distancia, salto_hecho))
+    datos_modelo.append((velocidad_bala,distancia,salto_hecho))
 
 # Función para pausar el juego y guardar los datos
 def pausa_juego():
@@ -241,9 +271,11 @@ def pausa_juego():
 def mostrar_menu():
     global menu_activo, modo_auto
     pantalla.fill(NEGRO)
-    texto = fuente.render("Presiona 'A' para Auto, 'M' para Manual,'Q' para Salir o G para Graficar", True, BLANCO)
+    texto = fuente.render("Presiona 'A' para Auto, 'M' para Manual,'Q' para Salir o 'G' para Graficar", True, BLANCO)
     pantalla.blit(texto, (w/8 , h/2.5))
     pygame.display.flip()
+
+    
 
     while menu_activo:
         for evento in pygame.event.get():
@@ -254,7 +286,7 @@ def mostrar_menu():
                 if evento.key == pygame.K_a:
                     modo_auto = True
                     menu_activo = False
-                    auto()
+                    auto(datos_modelo)
                 elif evento.key == pygame.K_m:
                     modo_auto = False
                     menu_activo = False
@@ -281,7 +313,7 @@ def reiniciar_juego():
     mostrar_menu()  # Mostrar el menú de nuevo para seleccionar modo
 
 def main():
-    global salto, en_suelo, bala_disparada
+    global salto, en_suelo, bala_disparada,bala
 
     reloj = pygame.time.Clock()
     mostrar_menu()  # Mostrar el menú al inicio
@@ -309,7 +341,21 @@ def main():
                 if salto:
                     manejar_salto()
                 # Guardar los datos si estamos en modo manual
+                print("Time to store data")
                 guardar_datos()
+            if modo_auto and salto:
+                manejar_salto()
+             
+                  
+                    #manejar_salto()
+            if modo_auto and en_suelo:
+                if datos_entrenamiento() == 1:
+                        salto = True
+                        en_suelo = False
+                        
+                
+            
+            
 
             # Actualizar el juego
             if not bala_disparada:
