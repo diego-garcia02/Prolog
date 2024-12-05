@@ -1865,9 +1865,19 @@ Actividades
 1.Implementar una red neuronal multicapa para clasificar los clientes según su riesgo.
 2.Encontrar los valores óptimos para los pesos `w1`, `w2` 'wn' y el sesgo `b` mediante entrenamiento.
 3.Graficar la frontera de decisión que separa los clientes .
+
+![] (https://github.com/diego-garcia02/Prolog/blob/main/24_Examen/Grafica.png) 
+
 4.¿Son los datos linealmente separables?
+
+Si, puesto que son tres diferentes clases cada una se puede separar de la otra mediante un plano.
+
 5.¿Qué ajustes podrían hacer al modelo para mejorar la clasificación?
+
+En lugar de tener las clases representadas con la posición de un numero en un arreglo se podria simplificar y tener cada una de las clases representadas por un unico número (-1,0,1)
+
 6.Describir cada una de las partes del modelo implementando
+
 
 
 
