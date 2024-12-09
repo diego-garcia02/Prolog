@@ -11,7 +11,8 @@ os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 from keras import Sequential
 #os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 #from tensorflow.python.keras.models import Sequential
-from keras.src.layers import Dense, Input
+from keras.src.layers import Dense
+
 
 
 # Inicializar Pygame
@@ -116,17 +117,22 @@ def auto_neural_network(datos_modelo):
 
     global model
     model = Sequential([
-        
-        Dense(6,input_dim = 2, activation ='relu'),
-        Dense(1,activation='sigmoid')
+        Dense(2,input_dim=2,activation='relu'), #relu
+        #Dense(6, activation = 'sigmoid'), #relu
+        #Dense(6, activation = 'sigmoid'),
+        Dense(6, activation = 'relu'), #sigmoid
+        Dense(6, activation='sigmoid'),
+        Dense(1,activation='sigmoid'), #sigmoid
+       
     ])
 
     model.compile(optimizer='adam',
                  loss='binary_crossentropy',
                  metrics=['accuracy'])
     model.summary()
+    print(f"Pesos: {model.get_weights()}")
 
-    model.fit(X_train,y_train,epochs=20,batch_size=32,verbose=1)
+    model.fit(X_train,y_train,epochs=100,batch_size=32,verbose=1)
 
 
     loss, accuracy = model.evaluate(X_test,y_test,verbose=0)
@@ -158,7 +164,7 @@ def auto_decision_tree(datos_modelo):
        
     #print(file_path)
     dataset = pd.read_csv(file_path, header=None, names=['velocidad', 'distancia', 'target'],dtype=float)
-  
+    
     # Eliminar columnas innecesarias (como la vacía "Unnamed: 3")
     #dataset = dataset.drop(columns=['Unnamed: 3'])
 
@@ -184,20 +190,23 @@ def auto_decision_tree(datos_modelo):
 
 
 def graficar_datos():
+    file_path = './22_Phaser/pygamesc/datos.csv'
     try:
-        f = open("./22_Phaser/pygamesc/datos.csv",'x')
+        f = open(file_path,'x')
     except FileExistsError:
         print("File already exists!")
         
-    f = open("./22_Phaser/pygamesc/datos.csv", 'a')
+    f = open(file_path, 'w')
     for i in datos_modelo:
         i = str(i)
+        #print(i)
         i = i.removeprefix('(')
         i = i.removesuffix(')')
         f.write(i+"\n")
-
+    f = open(file_path,'r')
     # Cargar los datos desde el CSV especificando que la primera fila es un encabezado
-    df = pd.read_csv('./22_Phaser/pygamesc/datos.csv', header=None, names=['x1', 'x2', 'target'], dtype=float)
+    df = pd.read_csv(file_path, header=None, names=['x1', 'x2', 'target'], dtype=float)
+    print(df)
     # Crear la figura 3D
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
@@ -343,6 +352,23 @@ def pausa_juego():
     else:
         print("Juego reanudado.")
 
+def reiniciar_juego():
+    global menu_activo, jugador, bala, nave, bala_disparada, salto, en_suelo, decision_tree, neural_network
+    menu_activo = True  # Activar de nuevo el menú
+    jugador.x, jugador.y = 50, h - 100  # Reiniciar posición del jugador
+    bala.x = w - 50  # Reiniciar posición de la bala
+    nave.x, nave.y = w - 100, h - 100  # Reiniciar posición de la nave
+    bala_disparada = False
+    salto = False
+    en_suelo = True
+    decision_tree = False
+    neural_network = False
+    #datos_modelo = [] 
+    # Mostrar los datos recopilados hasta el momento
+    print("Datos recopilados para el modelo: ", datos_modelo)
+    mostrar_menu()  # Mostrar el menú de nuevo para seleccionar modo
+
+
 # Función para mostrar el menú y seleccionar el modo de juego
 def mostrar_menu():
     global menu_activo, modo_auto,neural_network,decision_tree
@@ -379,26 +405,14 @@ def mostrar_menu():
                 elif evento.key == pygame.K_g:
                     print("Datos graficados")
                     graficar_datos()
+                
+
 
 # Función para reiniciar el juego tras la colisión
-def reiniciar_juego():
-    global menu_activo, jugador, bala, nave, bala_disparada, salto, en_suelo, decision_tree, neural_network
-    menu_activo = True  # Activar de nuevo el menú
-    jugador.x, jugador.y = 50, h - 100  # Reiniciar posición del jugador
-    bala.x = w - 50  # Reiniciar posición de la bala
-    nave.x, nave.y = w - 100, h - 100  # Reiniciar posición de la nave
-    bala_disparada = False
-    salto = False
-    en_suelo = True
-    decision_tree = False
-    neural_network = False
-    # Mostrar los datos recopilados hasta el momento
-    print("Datos recopilados para el modelo: ", datos_modelo)
-    mostrar_menu()  # Mostrar el menú de nuevo para seleccionar modo
 
 def main():
    
-    global salto, en_suelo, bala_disparada,bala
+    global salto, en_suelo, bala_disparada,bala, datos_modelo
 
     reloj = pygame.time.Clock()
     mostrar_menu()  # Mostrar el menú al inicio
@@ -418,6 +432,9 @@ def main():
                     print("Juego terminado. Datos recopilados:", datos_modelo)
                     pygame.quit()
                     exit()
+                if evento.key == pygame.K_j:
+                   datos_modelo = []
+                   reiniciar_juego()
                
 
         if not pausa:
@@ -441,7 +458,7 @@ def main():
                 if datos_entrenamiento_neural_network() == 1:
                         salto = True
                         en_suelo = False
-                        
+            
                 
             
             

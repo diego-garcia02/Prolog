@@ -1863,7 +1863,9 @@ Historial de pagos	Ingresos mensuales	Relación deuda-ingreso	Resultado
 
 Actividades
 1.Implementar una red neuronal multicapa para clasificar los clientes según su riesgo.
+
 2.Encontrar los valores óptimos para los pesos `w1`, `w2` 'wn' y el sesgo `b` mediante entrenamiento.
+
 3.Graficar la frontera de decisión que separa los clientes .
 
 ![] (https://github.com/diego-garcia02/Prolog/blob/main/24_Examen/Grafica.png) 

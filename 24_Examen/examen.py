@@ -2,16 +2,16 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from keras import Sequential
-from keras.src.layers import Dense
+from keras.src.layers import Dense, InputLayer
 from sklearn.model_selection import train_test_split
 
 #Generando los datos
 np.random.seed(10)
     
 X = np.random.choice([0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9],size=(2000,3))
-print(X)
+
 y= []
-targets = []
+
 #Si el promedio del historial de pagos e ingresos mensuales es mayor a 0.8 la clase 
 y1 = [((X[:,0]+X[:,1])/2 >= 0.7).astype(int), ((X[:,0]+X[:,1])/2 > 0.4).astype(int),((X[:,0]+X[:,1])/2 < 0.7).astype(int), ((X[:,0]+X[:,1])/2 <= 0.4).astype(int)]
 y2 = [ (X[:,2]<= 0.4).astype(int),  (X[:,2] > 0.4).astype(int),(X[:,2] < 0.7).astype(int), (X[:,2] >= 0.7).astype(int)]
@@ -23,7 +23,7 @@ for i in range(len(y1[0])):
        y[i].append(1)
    else:
        y[i].append(0)
-   if (y1[0][i] == 1 and y2[3][i] == 1) or ((y1[1][i] + y1[2][i]) == 2 and (y2[1][i] + y2[2][i]) == 2) or ((y1[1][i] + y1[2][i]) == 2 and y2[0][i] == 1):
+   if (y1[0][i] == 1 and y2[3][i] == 1) or ((y1[1][i] + y1[2][i]) == 2 and (y2[1][i] + y2[2][i]) == 2) or ((y1[1][i] + y1[2][i]) == 2 and y2[0][i] == 1) or ((y1[1][i] + y1[2][i]) == 2 and y2[3][i] == 1):
        y[i].append(1)
    else: 
         y[i].append(0)
@@ -31,35 +31,18 @@ for i in range(len(y1[0])):
        y[i].append(1)
    else:
         y[i].append(0)
-   
-for i in y: 
-    if i[0] == 1:
-        targets.append(-1)
-    elif i[1] == 1:
-        targets.append(0)
-    else:
-        targets.append(1)
+    
+print(type(X[0]))
+print(X)
+y = np.array(y)
+print(y)
 
-
-
-
-file_path = "./24_Examen/datos.csv"
-
-
-
-f = open(file_path, 'w')
-for i in range(len(X)):
-   row = str(X[i])
-   row = row.removeprefix('[')
-   row = row.removesuffix(']')
-   row = row.replace(" ",", ")
-   f.write(row+","+str(targets[i])+"\n")
 
    
 def graficar_datos():
     file_path = './24_Examen/datos.csv'
 
-    df = pd.read_csv(file_path, header=None, names=['HP', 'IM', 'RDI', 'target'], dtype=float)
+    df = pd.read_csv(file_path, header=None, names=['HP', 'IM', 'RDI'], dtype=float)
     print(df)
     # Crear la figura 3D
     fig = plt.figure()
@@ -82,19 +65,18 @@ def graficar_datos():
     # Mostrar el gráfico
     plt.show()
 
-def train_nn():
-    file_path = './24_Examen/datos.csv'
+def train_nn(X,y):
 
-    dataset = pd.read_csv(file_path, header=None, names=['HP', 'IM', 'RDI', 'target'], dtype=float)
-
-    X = dataset.iloc[:,:3 ] # Las tres primeras columnas son las características
-    y = dataset.iloc[:, 3]   # La cuarta columna es la etiqueta
-
+ 
     X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=42)
 
     model = Sequential([
-        Dense(4,input_dim='2',activation='tanh'),
-        Dense(1,activation='sigmoid')
+        InputLayer(shape=(3,), ),
+        Dense(3, activation='relu'),
+        Dense(10, activation='relu'),
+        Dense(10,activation='sigmoid'),
+        Dense(10, activation='sigmoid'),
+        Dense(3,activation='sigmoid')
     ])
 
     model.compile(optimizer='adam',loss='binary_crossentropy',metrics=['accuracy'])
@@ -107,9 +89,9 @@ def train_nn():
     nuevo_dato = np.array([[0.9,0.8,0.1]])
     prediccion = model.predict(nuevo_dato)
 
-    print(f"Prediccion para {nuevo_dato}: {prediccion[0][0]:.2f}")
+    print(f"Prediccion para {nuevo_dato}: {prediccion}")
+train_nn(X,y)
 
-graficar_datos()
 
 
 
