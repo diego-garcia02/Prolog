@@ -1830,6 +1830,7 @@ Una sugerencia para esquivar la bala que sale por arriba seria tomar la posició
 
 Para esquivar la bala que sale en diagonal podriamos usar una ecuación de la recta para saber que trayectoria sigue la bala y asi comprobar si en algunos de los puntos de esa recta esta la posicion del muñeco.
 
+<<<<<<< HEAD
 # Problema: Clasificación de clientes según su perfil financiero
 
 ## Descripción del Problema
@@ -1881,6 +1882,8 @@ En lugar de tener las clases representadas con la posición de un numero en un a
 6.Describir cada una de las partes del modelo implementando
 
 
+=======
+>>>>>>> 01c3a036b65a10b525953f85cb6b981d3d27d4c8
 
 
 

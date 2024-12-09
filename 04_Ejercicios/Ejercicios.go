@@ -34,7 +34,15 @@ func palindroma(cadena string) bool{
 		cadena2 += str[i];
 	}
 
+<<<<<<< HEAD
 	return cadena == cadena2;
+=======
+	if(cadena2 == cadena){
+		return true;
+	}else{
+		return false;
+	}
+>>>>>>> 01c3a036b65a10b525953f85cb6b981d3d27d4c8
     
 	
 	
